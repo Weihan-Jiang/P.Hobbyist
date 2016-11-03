@@ -22,4 +22,27 @@ $(function() {
     })
 
 
+
+    var $search = $('.search:input');
+    $('.search-result').hide();
+
+    $search.on('focus', function() {
+        $('form').animate({
+            paddingLeft: "0px"
+        }, 500);
+    })
+
+    $search.on('blur', function() {
+        console.log("blur?");
+        $('form').animate({
+            paddingLeft: "8rem"
+        }, 500);
+    })
+
+    $search.on('input', function() {
+        var value = $search.val();
+        if (value.length > 1) {
+            $('.search-result').show();
+        }
+    })
 });
