@@ -12,7 +12,7 @@
 }
 
 #title {
-    position: fixed;
+    position: absolute;
     z-index: 200;
     /*left: 20px;
     top: 10px;*/
@@ -93,7 +93,6 @@ input[type=text] {
 
 .search-result {
     position: relative;
-    
 }
 
 @font-face {
