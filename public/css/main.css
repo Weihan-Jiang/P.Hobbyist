@@ -95,6 +95,14 @@ input[type=text] {
     position: relative;
 }
 
+.navbar {
+    margin-bottom: 0px;
+}
+
+.upper-part>.row:last-of-type {
+    margin-bottom: 0;
+}
+
 @font-face {
     font-family: "Material-Design-Icons";
     src: url("C:\Users\derrick\P.Hobbyist\P.Hobbyist\img\Materialize-Design-Icons.woff") format("embedded-opentype"), url("../font/material-design-icons/Material-Design-Icons.woff2") format("woff2"), url("../font/material-design-icons/Material-Design-Icons.woff") format("woff"), url("../font/material-design-icons/Material-Design-Icons.ttf") format("truetype"), url("../font/material-design-icons/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
