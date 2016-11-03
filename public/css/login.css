@@ -91,6 +91,9 @@ h1{
   background-color: #ee6e73;
   color: #fff;
   font-size: 18px;
+  text-align:center;
+  text-decoration:none;
+  line-height:2.5;
 }
 
 .btn__login:hover{
