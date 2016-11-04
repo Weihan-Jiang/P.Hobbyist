@@ -52,6 +52,7 @@ function getPoster() {
 
 
 exports.view = function(req, res) {
+    console.log(movies);
     res.render('movie', movies);
 
 };

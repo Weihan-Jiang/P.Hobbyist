@@ -68,6 +68,7 @@
 			<div class="movieList col s8">
 				<div class="row">
 					{{#each movies}}
+					{{#unless watched}}
 					<div class="col s12">
 						<div class="card horizontal movie-card" id="{{title}}">
 							<div class="card-image">
@@ -83,6 +84,7 @@
 							</div>
 						</div>
 					</div>
+					{{/unless}}
 					{{/each}}
 
 
