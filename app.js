@@ -127,6 +127,7 @@ app.get('/login', login.view);
 app.get('/bookDetail/:id', bookDetail.view);
 app.get('/movieDetail/:id', movieDetail.view);
 app.post('/movieDetail/:id/:status', movieDetail.update);
+app.post('/:keyword', index.search);
 // Example route
 
 // app.get('/users', user.list);

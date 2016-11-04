@@ -45,7 +45,24 @@
 									</nav>
 								</div>
 								<div class="search-result z-depth-2">
-									<ul>
+									<ul class="collection">
+										{{#each results}}
+										<li class="collection-item">
+											<div class="card horizontal movie-card" id="{{title}}">
+												<div class="card-image">
+													<img src="{{poster}}" class="cover" alt="movie">
+												</div>
+												<div class="card-stacked">
+													<div class="card-content">
+														<p>{{title}}</p>
+													</div>
+													<div class="card-action">
+														<a class="waves-effect waves-light btn" id="add"><i class="material-icons left">add</i>add</a>
+													</div>
+												</div>
+											</div>
+										</li>
+										{{/each}}
 									</ul>
 								</div>
 							</div>
@@ -265,6 +282,7 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
 	<!-- javascript-->
 	<script src="js/main.js"></script>
+	<script src="js/search.js"></script>
 </body>
 
 </html>

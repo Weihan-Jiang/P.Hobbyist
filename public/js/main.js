@@ -37,12 +37,9 @@ $(function() {
         $('form').animate({
             paddingLeft: "8rem"
         }, 500);
+        $('.search-result').hide();
+
     })
 
-    $search.on('input', function() {
-        var value = $search.val();
-        if (value.length > 1) {
-            $('.search-result').show();
-        }
-    })
+
 });
