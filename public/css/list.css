@@ -30,3 +30,8 @@
 .card-action a {
     margin-right: 0px;
 }
+
+
+.tagfield ul li {
+	float: left;
+}

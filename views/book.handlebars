@@ -45,10 +45,23 @@
 		</nav>
 	</header>
 	<div class="tag-field">
+	<div class="tag-field">
 		<div class="row">
-			<div class="col s2">
 				<label>tags</label>
-			</div>
+				<div class ="button-group filter-button-group">
+					<ul id="tagrow">
+						<li class="button checked" data-filter="*"> Show all </li> 
+						<li class="button" data-filter=".action"> Action </li> 
+						<li class="button" data-filter=".comedy"> Comedy </li> 
+						<li class="button" data-filter=".crime"> Crime </li> 
+						<li class="button" data-filter=".drama"> Drama </li>
+						<li class="button" data-filter=".fantasy"> Fantasy</li> 
+						<li class="button" data-filter=".horror"> Horror </li> 
+						<li class="button" data-filter=".mystery">Mystery</li> 
+						<li class="button" data-filter=".romance"> Romance</li> 
+						<li class="button" data-filter=".sci-fi"> Sci-fi </li>  
+					</ul>
+				</div>
 			<div class="col s10">
                 {{#each tags}}
 				<div class="chip">{{tag-name}}</div>
@@ -57,6 +70,49 @@
 			<div class="col s12 halign-wrapper">
 				<a class="waves-effect waves-light btn-large halign" href="bookDetail/{{random}}">Just Give Me a Book</a>
 			</div>
+
+			<ul id="bookrow">
+			<div class="grid">
+					<div class="grid-item adventure"><img src="img/1 - tnl3Ag5.jpg" alt="">
+						<span class="text-content"> The Hobbit <br> by J. R. R. Tolkien </br> <br> </br> <p>  "Bilbo Baggins is a hobbit who enjoys a comfortable, unambitious life, rarely traveling any farther than his pantry or cellar. But his contentment is disturbed when the wizard Gandalf and a company of dwarves arrive on his doorstep one day to whisk him away on an adventure. They have launched a plot to raid the treasure hoard guarded by Smaug the Magnificent, a large and very dangerous dragon. Bilbo reluctantly joins their quest, unaware that on his journey to the Lonely Mountain he will encounter both a magic ring and a frightening creature known as Gollum." </p> </span> </span>
+					</div>
+
+					<div class="grid-item sci-fi"><img src="img/1984-creepy-eye.jpg" alt="">
+						<span class="text-content"> 1984 <br> by George Orwell </br> <br> </br> "It was a bright cold day in April, and the clocks were striking thirteen… And in this epic novel, George Orwell reminds us of BIG BROTHER the negative utopia that will befall upon the modern world. This is a classic for all to pay closer attention to and to and to be aware of the rulers and the tactics they employ." </span> </span>
+
+				</div>
+
+					<div class="grid-item crime"><img src="img/sherlock-holmes-book-cover_81039.jpg" alt="">
+						<span class="text-content"> The Adventures of Sherlock Holmes <br> by Sir Arthur Conan Doyle </br> <br> </br> Volume I includes the early novel A Study in Scarlet, which introduced the eccentric genius of Sherlock Holmes to the world. This baffling murder mystery, with the cryptic word Rache written in blood, first brought Holmes together with Dr. John Watson. Next, The Sign of Four presents Holmes’s famous “seven percent solution” and the strange puzzle of Mary Morstan in the quintessential locked-room mystery.  </span> </span>
+					</div>
+					<div class="grid-item drama"><img src="img/book-cover.jpg" alt="">
+						<span class="text-content"> ??? <br> by Kasai Kiyoshi </br> <br> </br> Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text Placeholder text   </span> </span>
+					</div>
+					<div class="grid-item fantasy"><img src="img/ainwland.jpg" alt="">
+						<span class="text-content"> Alice in Wonderland <br> by Lewis Carroll </br> <br> </br> "Alice's Adventures in Wonderland is an 1865 novel written by English author Charles Lutwidge Dodgson under the pseudonym Lewis Carroll. It tells of a girl named Alice falling through a rabbit hole into a fantasy world populated by peculiar, anthropomorphic creatures. The tale plays with logic, giving the story lasting popularity with adults as well as with children. It is considered to be one of the best examples of the literary nonsense genre. Its narrative course and structure, characters and imagery have been enormously influential in both popular culture and literature, especially in the fantasy genre."  </span> </span>
+					</div>
+					<div class="grid-item horror"><img src="img/lordofflies.jpg" alt="">
+						<span class="text-content"> Lord of the Flies <br> by William Goulding </br> <br> </br> "William Golding's compelling story about a group of very ordinary small boys marooned on a coral island has become a modern classic. At first it seems as though it is all going to be great fun; but the fun before long becomes furious and life on the island turns into a nightmare of panic and death. As ordinary standards of behaviour collapse, the whole world the boys know collapses with them—the world of cricket and homework and adventure stories—and another world is revealed beneath, primitive and terrible.Labeled a parable, an allegory, a myth, a morality tale, a parody, a political treatise, even a vision of the apocalypse, Lord of the Flies has established itself as a true classic."  </span> </span>
+					</div>
+					<div class="grid-item mystery"><img src="img/enhanced-buzz-22857-1375200446-23.jpg" alt="">
+						<span class="text-content"> The Strange Case of Dr. Jekyll and Mr. Hyde<br> by Robert Louis Stevenson </br> <br> </br> "The Strange Case of Dr. Jekyll and Mr. Hyde, Dr. Jekyll and Mr. Hyde, or simply Jekyll and Hyde. It is about a London lawyer named Gabriel John Utterson who investigates strange occurrences between his old friend, Dr. Henry Jekyll, and the evil Edward Hyde. The work is commonly associated with the rare mental condition often called "split personality", referred to in psychiatry as dissociative identity disorder, where within the same body there exists more than one distinct personality. In this case, there are two personalities within Dr. Jekyll, one apparently good and the other evil. The novella's impact is such that it has become a part of the language, with the very phrase "Jekyll and Hyde" coming to mean a person who is vastly different in moral character from one situation to the next."  </span> </span>
+					</div>
+					<div class="grid-item romance"><img src="img/ofmicenmen.jpg" alt="">
+						<span class="text-content"> Of Mice and Men <br> by John Steinbeck </br> <br> </br> "They are an unlikely pair: George is "small and quick and dark of face"; Lennie, a man of tremendous size, has the mind of a young child. Yet they have formed a "family," clinging together in the face of loneliness and alienation.
+
+						When they land jobs on a ranch in the Salinas Valley, the fulfillment of their dream seems to be within their grasp. But even George cannot guard Lennie from the provocations of a flirtatious woman, nor predict the consequences of Lennie's unswerving obedience to the things George taught him.
+"  						</span> </span>
+					</div>
+					<div class="grid-item sci-fi"><img src="img/war-of-the-worlds-cover-by-kjell-roger-ringstad.jpg" alt="">
+						<span class="text-content">The War of the Worlds <br> by H.G. Wells </br> <br> </br> "The War of the Worlds is a science fiction novel by English author H. G. Wells. It first appeared in serialized form in 1897, published simultaneously in Pearson's Magazine in the UK and Cosmopolitan magazine in the US. The first appearance in book form was published by William Heinemann of London in 1898. It is the first-person narrative of an unnamed protagonist in Surrey and that of his younger brother in London as Earth is invaded by Martians. " </span> </span>
+					</div>
+					<div class="grid-item comedy"><img src="img/cyrandodebergerac.jpg" alt="">
+					
+						<span class="text-content"> Cyrano de Bergerac <br> by Edmond Rostand </br> <br> </br> "Cyrano de Bergerac occupies a unique place in the modern theater. Deliberately disavowing realism and contemporary relevance, Edmond Rostand’s masterpiece represents a turning back in both time and spirit to an earlier age of high adventure and soaring idealism. Its magnificent hero, Cyrano—noble of soul and grotesque in appearance, gallant Gascon soldier, brilliant wit, and timid lover, alternately comic, heroic, tragic—represents one of the most challenging of all acting roles in its complexity and mercurial changes of mood. " </span> </span>
+					</div>
+				</div>
+			</ul>
+
 		</div>
 	</div>
 
@@ -108,8 +164,10 @@
 
 
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<!-- Bootstrap-->
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<!-- Bootstrap-->	
+	<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>	<!-- Bootstrap-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
 	<!-- materialize-->
