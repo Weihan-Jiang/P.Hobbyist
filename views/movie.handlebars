@@ -46,9 +46,23 @@
 	</header>
 	<div class="tag-field">
 		<div class="row">
-			<div class="col s2">
 				<label>tags</label>
-			</div>
+
+					<div class ="button-group filter-button-group">
+					<ul id="tagrow">
+						<li class="button checked" data-filter="*"> Show all </li> 
+						<li class="button" data-filter=".action"> Action </li> 
+						<li class="button" data-filter=".comedy"> Comedy </li> 
+						<li class="button" data-filter=".crime"> Crime </li> 
+						<li class="button" data-filter=".drama"> Drama </li>
+						<li class="button" data-filter=".fantasy"> Fantasy</li> 
+						<li class="button" data-filter=".horror"> Horror </li> 
+						<li class="button" data-filter=".mystery">Mystery</li> 
+						<li class="button" data-filter=".romance"> Romance</li> 
+						<li class="button" data-filter=".sci-fi"> Sci-fi </li>  
+					</ul>
+				</div>
+
 			<div class="col s10">
 				{{#each tags}}
 				<div class="chip">{{tag-name}}</div>
@@ -57,6 +71,51 @@
 			<div class="col s12 halign-wrapper">
 				<a class="waves-effect waves-light btn-large halign" href="movieDetail/{{random}}">Just Give Me a Movie</a>
 			</div>
+			<ul id="bookrow">
+			<div class="grid">
+				<div class="container">
+					<div class="grid-item adventure"><img src="img/american-hustle-52a1a907181ee.jpg" alt="">
+						<span class="text-content"> American Hustle <br> </br> <br> </br> <p>  "A con man, Irving Rosenfeld, along with his seductive partner Sydney Prosser, is forced to work for a wild FBI agent, Richie DiMaso, who pushes them into a world of Jersey powerbrokers and mafia." </p> </span> </span>
+					</div>
+				</div>
+
+					<div class="grid-item sci-fi"><img src="img/alien.jpg" alt="">
+						<span class="text-content"> Alien <br> </br> <br> </br> "After a space merchant vessel perceives an unknown transmission as distress call, their landing on the source moon finds one of the crew attacked by a mysterious lifeform. Continuing their journey back to Earth with the attacked crew having recovered and the critter deceased, they soon realize that its life cycle has merely begun.." </span> </span>
+
+				</div>
+
+					<div class="grid-item crime"><img src="img/american-history-x-522cbf0f894e0.jpg" alt="">
+						<span class="text-content"> American History X <br> </br> <br> </br> "A former neo-nazi skinhead tries to prevent his younger brother from going down the same wrong path that he did." </span> </span>
+					</div>
+					<div class="grid-item drama"><img src="img/theblindside.jpg" alt="">
+						<span class="text-content"> The Blind Side <br> </br> <br> </br> "The story of Michael Oher, a homeless and traumatized boy who became an All American football player and first round NFL draft pick with the help of a caring woman and her family."  </span> </span>
+					</div>
+					<div class="grid-item fantasy"><img src="img/the-chronicles-of-narnia-the-voyage-of-the-dawn-treader-52ed6f27282b4.jpg" alt="">
+						<span class="text-content"> The Chronicles of Narnia: </br> The Voyage of the Dawn Treader </br> <br></br> <br> </br> "Lucy and Edmund Pevensie return to Narnia with their cousin Eustace where they meet up with Prince Caspian for a trip across the sea aboard the royal ship The Dawn Treader. Along the way they encounter dragons, dwarves, merfolk, and a band of lost warriors before reaching the edge of the world."  </span> </span>
+					</div>
+					<div class="grid-item horror"><img src="img/theblairwitchproject.jpg" alt="">
+						<span class="text-content"> The Blair Witch Project <br>  </br> <br> </br> "Three film students vanish after traveling into a Maryland forest to film a documentary on the local Blair Witch legend, leaving only their footage behind..."  </span> </span>
+					</div>
+					<div class="grid-item mystery"><img src="img/the-black-dahlia-53c58f2610a8b.jpg" alt="">
+						<span class="text-content"> Black Dahlia <br></br> <br> </br> "Two policemen see their personal and professional lives fall apart in the wake of the "Black Dahlia" murder investigation."  </span> </span>
+					</div>
+					<div class="grid-item romance"><img src="img/tangled-5223c5569a87b.jpg" alt="">
+						<span class="text-content"> Tangled <br>  </br> <br> </br> "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is."
+"  						</span> </span>
+					</div>
+					<div class="grid-item sci-fi"><img src="img/terminator-the-sarah-connor-chronicles-521e22f306a55.jpg" alt="">
+						<span class="text-content"> The Terminator <br> </br> <br> </br> "A human-looking indestructible cyborg is sent from 2029 to 1984 to assassinate a waitress, whose unborn son will lead humanity in a war against the machines, while a soldier from that war is sent to protect her at all costs." </span> </span>
+					</div>
+					<div class="container">
+					<div class="grid-item comedy"><img src="img/supertroopers.jpg" alt="">
+					
+						<span class="text-content"> Supertroopers <br> </br> <br> </br> "Five Vermont state troopers, avid pranksters with a knack for screwing up, try to save their jobs and out-do the local police department by solving a crime. " </span> </span>
+					</div>
+				</div>
+				</div>
+			</ul>
+
+
 		</div>
 	</div>
 
@@ -71,14 +130,14 @@
 					<div class="col s12">
 						<div class="card horizontal movie-card" id="{{title}}">
 							<div class="card-image">
-								<img src="{{poster}}" class="cover" alt="movie">
+								<img src="{{movie-cover}}" class="cover" alt="movie">
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
 									<p>{{title}}</p>
 								</div>
 								<div class="card-action">
-									<a href="movieDetail/{{imdb}}">Open</a>
+									<a href="movieDetail/{{title}}">Open</a>
 								</div>
 							</div>
 						</div>
@@ -109,7 +168,11 @@
 
 
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+	<script src="js/jquery-3.1.1.min.js"></script>
+	<!-- Bootstrap-->	
+	<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.js"></script>
+	<script src="js/isotope.pkgd.min.js"></script>
 	<!-- Bootstrap-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
