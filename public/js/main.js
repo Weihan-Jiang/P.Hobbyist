@@ -59,10 +59,6 @@ var $grid = $('.grid').isotope({
   stagger: 30
 });
 
-$('.grid').masonry({
-    columnWidth: 400,
-    itemSelector:'.grid-item'
-})
 
 $('.filter-button-group').on( 'click', '.button', function() {
   var filterValue = $(this).attr('data-filter');
@@ -83,3 +79,4 @@ $('.grid').masonry({
     columnWidth: 600,
     itemSelector: '.grid-item'
 })
+

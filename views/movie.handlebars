@@ -44,6 +44,7 @@
 			</div>
 		</nav>
 	</header>
+
 	<div class="tag-field">
 		<div class="row">
 				<label>tags</label>
@@ -64,17 +65,14 @@
 				</div>
 
 
-			<div class="col s10">
-				{{#each tags}}
-				<div class="chip">{{tag-name}}</div>
-				{{/each}}
-			</div>
 			<div class="col s12 halign-wrapper">
-				<a class="waves-effect waves-light btn-large halign" href="movieDetail/{{random}}">Just Give Me a Movie</a>
+				<a class="waves-effect waves-light btn-large halign" href="movieDetail/{{random}}">Recommend me a movie!</a>
 			</div>
-			<ul id="bookrow">
+
+<!--			<ul id="bookrow">
 			<div class="grid">
-				
+
+
 					<div class="grid-item adventure"><img src="img/american-hustle-52a1a907181ee.jpg" alt="">
 						<span class="text-content"> American Hustle <br> </br> <br> </br> <p>  "A con man, Irving Rosenfeld, along with his seductive partner Sydney Prosser, is forced to work for a wild FBI agent, Richie DiMaso, who pushes them into a world of Jersey powerbrokers and mafia." </p> </span> </span>
 					</div>
@@ -116,14 +114,18 @@
 		</div>
 	</div>
 
+-->
 	<div class="list-wrapper">
 		<div class="row">
 			<aside class="date col s3">
 				<time datetime="2016-11">November</time>
 			</aside>
-			<div class="movieList col s8">
+			<div class = "grid">
+			<div class="movieList col s8" data-category = "*">
 				<div class="row">
+					<ul  id = "movierow">
 					{{#each movies}}
+					<div class = "grid-item {{tag1}} {{tag2}} {{tag3}} ">
 					<div class="col s12">
 						<div class="card horizontal movie-card" id="{{title}}">
 							<div class="card-image">
@@ -137,9 +139,11 @@
 									<a href="movieDetail/{{imdb}}">Open</a>
 								</div>
 							</div>
+						<!--</div>-->
 						</div>
-					</div>
-					{{/each}}
+
+					</ul>
+				{{/each}}
 
 
 					<!--<div class="z-depth-2">
@@ -148,6 +152,7 @@
 
 				</div>
 			</div>
+		</div>
 		</div>
 	</div>
 
@@ -166,8 +171,8 @@
 
 
 	<script src="js/jquery-3.1.1.min.js"></script>
-	<!-- Bootstrap-->	
-	<script src="js/isotope.pkgd.min.js"></script>	<!-- Bootstrap-->
+	<script src="js/isotope.pkgd.min.js"></script>	
+	<!-- Bootstrap-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
 	<!-- materialize-->

@@ -157,7 +157,7 @@ span.text-content span {
     vertical-align: middle;
 }
 
-<<<<<<< HEAD
+
 
 
 *{
@@ -191,9 +191,6 @@ ul li:hover{
     margin-top: 100px;
 }
 
-.grid-item {
-    
-}
 
 .grid img{
     float: left;
@@ -237,8 +234,3 @@ span.text-content span {
     src: url("C:\Users\derrick\P.Hobbyist\P.Hobbyist\img\Materialize-Design-Icons.woff") format("embedded-opentype"), url("../font/material-design-icons/Material-Design-Icons.woff2") format("woff2"), url("../font/material-design-icons/Material-Design-Icons.woff") format("woff"), url("../font/material-design-icons/Material-Design-Icons.ttf") format("truetype"), url("../font/material-design-icons/Material-Design-Icons.svg#Material-Design-Icons") format("svg");
     font-weight: normal;
     font-style: normal;
-=======
-.grid-item:hover span.text-content{
-    opacity: 1;
->>>>>>> 9832038af5e00e79b7e3921f9e82380bbfe2f3b7
-}

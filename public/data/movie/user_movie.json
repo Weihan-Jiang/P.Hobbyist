@@ -1,25 +1,25 @@
 {
-    "movies": [{
+    "movies": [
+	{
             "imdb": "tt1211837",
             "title": "Doctor Strange",
-            "tags": [
-                { "tag": "Action" },
-                { "tag": "Adventure" },
-                { "tag": "Fantasy" },
-                { "tag": "Marvel Comic" }
-            ],
+            "tag1":   "action",
+            "tag2":   "fantasy",
+            "tag3":   "sci-fi",
+
             "poster": "http://image.tmdb.org/t/p/w154/xfWac8MTYDxujaxgPVcRD9yZaul.jpg"
         },
+
         {
             "imdb": "tt1386697",
             "title": "Suicide Squad",
-            "tags": [
-                { "tag": "Action" },
-                { "tag": "Crime" },
-                { "tag": "Fantasy" },
-                { "tag": "DC" }
-            ],
+	    "tag1":   "action",
+            "tag2":   "fantasy",
+            "tag3":   "drama",
+
+
             "poster": "http://image.tmdb.org/t/p/w154/e1mjopzAS2KNsvpbpahQ1a6SkSn.jpg"
         }
+
     ]
 }
