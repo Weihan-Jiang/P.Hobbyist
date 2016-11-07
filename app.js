@@ -31,9 +31,7 @@
 // });
 
 /**
-
  * Module dependencies.
-
  */
 
 
@@ -59,6 +57,12 @@ var movie = require('./routes/movie');
 var movieHistory = require('./routes/movieHistory');
 
 var bookHistory = require('./routes/bookHistory');
+
+var login = require('./routes/login');
+
+var bookDetail = require('./routes/bookDetail');
+
+var movieDetail = require('./routes/movieDetail');
 
 // Example route
 
@@ -117,6 +121,11 @@ app.get('/book', book.view);
 app.get('/movie', movie.view);
 app.get('/bookHistory', bookHistory.view);
 app.get('/movieHistory', movieHistory.view);
+app.get('/login', login.view);
+app.get('/bookDetail/:id', bookDetail.view);
+app.get('/movieDetail/:id', movieDetail.view);
+app.post('/movieDetail/:id/:status', movieDetail.update);
+app.post('/:keyword', index.search);
 // Example route
 
 // app.get('/users', user.list);
@@ -128,7 +137,3 @@ http.createServer(app).listen(app.get('port'), function() {
     console.log('Express server listening on port ' + app.get('port'));
 
 });
-
-//= require jquery
-//= require jquery_ujs
-//= require twitter/bootstrap
