@@ -19,9 +19,9 @@ exports.search = function(req, res) {
         if (response.statusCode == 200) {
             //console.log(body);
             var searchResult = JSON.parse(body);
-            console.log(JSON.stringify(searchResult.results[0]));
+            console.log(JSON.stringify(searchResult));
             //console.log(res);
-            res.render('index', searchResult.results);
+            res.render('index', searchResult);
         } else {
             console.log('error: ' + response.statusCode)
             console.log(body);

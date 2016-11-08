@@ -44,14 +44,14 @@
 			</div>
 		</nav>
 	</header>
-	<div class="tag-field">
+	<div class="tag-wrapper">
 		<div class="row">
 			<div class="col s2">
 				<label>tags</label>
 			</div>
-			<div class="col s10">
+			<div class="col s10 tag-field">
 				{{#each tags}}
-				<div class="chip">{{tag-name}}</div>
+				<div class="tag chip waves-effect" data-filter="{{this}}">{{this}}</div>
 				{{/each}}
 			</div>
 			<div class="col s12 halign-wrapper">
@@ -66,13 +66,13 @@
 				<time datetime="2016-11">November</time>
 			</aside>
 			<div class="movieList col s8">
-				<div class="row">
-					{{#each movies}}
-					{{#unless watched}}
-					<div class="col s12">
+				<div class="movie-grid row">
+					{{#each movies}} {{#unless watched}}
+					<div class="movie-item col s12 {{#each tags}}{{this}} {{/each}} ">
+						<!--<div class="grid-item {{#each tags}} {{this}} {{/each}} ">-->
 						<div class="card horizontal movie-card" id="{{title}}">
 							<div class="card-image">
-								<img src="{{poster}}" class="cover" alt="movie">
+								<img src="{{poster}}" class="cover" alt="movie" width="83.325px" height="124.988px">
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
@@ -83,9 +83,9 @@
 								</div>
 							</div>
 						</div>
+						<!--</div>-->
 					</div>
-					{{/unless}}
-					{{/each}}
+					{{/unless}} {{/each}}
 
 
 					<!--<div class="z-depth-2">
@@ -111,7 +111,9 @@
 
 
 
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
 	<!-- Bootstrap-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
@@ -120,6 +122,57 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
 	<!-- javascript-->
 	<script src="js/main.js"></script>
+	<script>
+	    
+		// init Isotope
+        var $grid = $('.movie-grid').isotope({
+            itemSelector: '.movie-item'
+        });
+
+        // store filter for each group
+        var filters = [];
+
+        function addFilter(filter) {
+            if (filters.indexOf(filter) == -1) {
+                filters.push(filter);
+				console.log(filter+" is added into filters array");
+            }
+        }
+
+        function removeFilter(filter) {
+            var index = filters.indexOf(filter);
+            if (index != -1) {
+                filters.splice(index, 1);
+				console.log(filter+" is removed from filters array");
+            }
+        }
+
+        $tag = $(".tag");
+
+		$tag.on('click',function(event){
+			$this=$(this);
+			var isChecked = $(this).hasClass('is-checked');
+			var filter = $this.attr('data-filter');
+			console.log("filter loaded "+filter);
+			if(isChecked){
+				console.log("isChecked = true , remove isChecked and filter");
+				$(this).removeClass('is-checked red lighten-2 grey-text text-lighten-5');
+				removeFilter(filter);
+				console.log(filter+" is removed");
+			}
+			else {
+				console.log("isChecked = false , add isChecked and filter");
+				$(this).addClass('is-checked red lighten-2 grey-text text-lighten-5');
+				addFilter(filter);
+				console.log(filter+" is added");
+
+			}
+			$grid.isotope({ filter: filters.join(',') });
+			console.log(filters.join(','));
+		})
+
+
+    </script>
 </body>
 
 </html>
