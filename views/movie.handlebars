@@ -68,7 +68,7 @@
 			<div class="movieList col s8">
 				<div class="movie-grid row">
 					{{#each movies}} {{#unless watched}}
-					<div class="movie-item col s12 {{#each tags}}{{this}} {{/each}} ">
+					<div class="movie-item {{#each tags}}{{this}} {{/each}} col s12  ">
 						<!--<div class="grid-item {{#each tags}} {{this}} {{/each}} ">-->
 						<div class="card horizontal movie-card" id="{{title}}">
 							<div class="card-image">
@@ -133,6 +133,7 @@
         var filters = [];
 
         function addFilter(filter) {
+			filter="."+filter;
             if (filters.indexOf(filter) == -1) {
                 filters.push(filter);
 				console.log(filter+" is added into filters array");
@@ -140,6 +141,8 @@
         }
 
         function removeFilter(filter) {
+						filter="."+filter;
+
             var index = filters.indexOf(filter);
             if (index != -1) {
                 filters.splice(index, 1);
@@ -152,23 +155,22 @@
 		$tag.on('click',function(event){
 			$this=$(this);
 			var isChecked = $(this).hasClass('is-checked');
-			var filter = $this.attr('data-filter');
-			console.log("filter loaded "+filter);
+			var filterValue = $this.attr('data-filter');
+			console.log("filter loaded "+filterValue);
 			if(isChecked){
 				console.log("isChecked = true , remove isChecked and filter");
 				$(this).removeClass('is-checked red lighten-2 grey-text text-lighten-5');
-				removeFilter(filter);
-				console.log(filter+" is removed");
+				removeFilter(filterValue);
+				console.log(filterValue+" is removed");
 			}
 			else {
 				console.log("isChecked = false , add isChecked and filter");
 				$(this).addClass('is-checked red lighten-2 grey-text text-lighten-5');
-				addFilter(filter);
-				console.log(filter+" is added");
+				addFilter(filterValue);
+				console.log(filterValue+" is added");
 
 			}
 			$grid.isotope({ filter: filters.join(',') });
-			console.log(filters.join(','));
 		})
 
 
