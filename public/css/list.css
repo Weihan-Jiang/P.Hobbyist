@@ -25,16 +25,15 @@
 .card.horizontal .card-action {
     text-align: center;
     padding: 5px;
+    background-color: #ff5252;
+    color: black;
 }
 
 .card-action a {
     margin-right: 0px;
+
 }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 9832038af5e00e79b7e3921f9e82380bbfe2f3b7
-.tagfield ul li {
-	float: left;
+.textcolor {
+	color: white;
 }

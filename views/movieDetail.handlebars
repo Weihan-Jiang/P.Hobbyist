@@ -11,11 +11,14 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
+    <link rel="stylesheet" href="/css/movieDetail.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script src="/js/moviePage.js"></script>
 </head>
 
 <body>
@@ -24,9 +27,9 @@
             <div class="row" id="top">
                 <!-- need to be filled later-->
                 <div class="col-sm-6">
-                    <a href="movie.handlebars">
+                    <button id="back">
                         <p>back</p>
-                    </a>
+                    </button>
                 </div>
                 <div class="col-sm-6 title">
                     <p style="text-align:right">Hobbyist</p>
@@ -40,22 +43,22 @@
             <div class="col-sm-2"></div>
 
             <div class="col-sm-4">
-                <img src="https://images-na.ssl-images-amazon.com/images/M/MV5BMjM1OTMxNzUyM15BMl5BanBnXkFtZTgwNjYzMTIzOTE@._V1_UY1200_CR90,0,630,1200_AL_.jpg" style="width:52%;height:auto"></img>
+                <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" style="width:52%;height:auto"></img>
             </div>
 
             <div class="col-sm-6" id="middle-right">
-                <h2>Movie Title</h2>
+                <h2>{{title}}</h2>
                 <div class="row" id="middle-right-button">
                     <div class="col-sm-6">
-                        <a href="#" data-toggle="popover" data-placement="top" data-content="after clicking, save this movie to the history">Watched</a>
+                        <a class="waves-effect waves-light btn" id="watched"><i class="material-icons left">cloud</i>Watched</a>
                     </div>
                     <div class="col-sm-6">
-                        <a href="#" data-toggle="popover" data-placement="right" data-content="after clicking, delete this movie from watchlist or history">Delete</a>
+                        <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>delete</a>
                     </div>
                 </div>
                 <div class="row" id="movie description">
                     <div class="col-sm-8">
-                        Movie description.Example:A secret government agency recruits some of the most dangerous incarcerated super-villains to form a defensive task force. Their first mission: save the world from the apocalypse.
+                        {{overview}}
                     </div>
                 </div> 
                     <p style="margin-bottom:0px">Tag</p>
@@ -101,19 +104,20 @@
             <i class="material-icons">menu</i>
         </a>
         <ul>
-            <li><a class="btn-floating red" href="movie"><i class="material-icons">theaters</i></a></li>
-            <li><a class="btn-floating green" href="book"><i class="material-icons">book</i></a></li>
+            <li><a class="btn-floating red" href="/movie"><i class="material-icons">theaters</i></a></li>
+            <li><a class="btn-floating green" href="/book"><i class="material-icons">book</i></a></li>
             <li><a class="btn-floating blue" href="/"><i class="material-icons">home</i></a></li>
         </ul>
     </div>
 
     <!-- materialize-->
-    <script type="text/javascript" src="js/materialize.min.js"></script>
-    <script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+    <!--script>
         $(document).ready(function() {
             $('[data-toggle="popover"]').popover();
         });
-    </script>
+    </script-->
+    <script src="/js/movieDetail.js"></script>
 </body>
 
 </html>
