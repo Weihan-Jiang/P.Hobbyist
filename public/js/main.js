@@ -41,12 +41,12 @@ $(function() {
         }, 500);
     })
 
-    /*   $search.on('blur', function() {
-           $('form').animate({
-               paddingLeft: "8rem"
-           }, 500);
-           $('.search-result').hide();
-       })*/
+    $search.on('blur', function() {
+        $('form').animate({
+            paddingLeft: "8rem"
+        }, 500);
+        $('.search-result').hide();
+    })
 
     var $randomContent = $('.random-wrapper-movie');
     var $random = $('.random-movie.btn');
