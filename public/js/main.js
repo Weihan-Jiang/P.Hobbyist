@@ -45,6 +45,9 @@ $(function() {
         $('form').animate({
             paddingLeft: "8rem"
         }, 500);
+    })
+
+    $('i.material-icons.close').on('click', function() {
         $('.search-result').hide();
     })
 
