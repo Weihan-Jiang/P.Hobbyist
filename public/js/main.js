@@ -3,7 +3,9 @@ $(function() {
         // Optional parameters
         direction: 'horizontal',
         loop: false,
-        pagination: '.swiper-pagination'
+        pagination: '.swiper-pagination-o',
+        parallax: true,
+        speed: 600,
 
     })
     var nestedSwiper = new Swiper('.swiper-container-n', {
@@ -19,6 +21,13 @@ $(function() {
                 spaceBetween: 30
             }
         }
+    })
+    var upperSwiper = new Swiper('.swiper-container-u', {
+        direction: 'horizontal',
+        loop: false,
+        nested: true,
+        pagination: '.swiper-pagination-u',
+
     })
 
 
