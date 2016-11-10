@@ -3,6 +3,7 @@ const api_base_url = "https://api.themoviedb.org/3/";
 
 var request = require('request');
 var movies = require("../public/data/movie/user_movie.json");
+var indexJSON = require("../public/data/movie/index.json");
 var fs = require('fs');
 
 function getMovieInfo(imdb) {

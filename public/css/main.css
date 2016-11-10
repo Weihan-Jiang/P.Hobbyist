@@ -1,5 +1,3 @@
-
-
 .swiper-container {
     width: 100%;
     height: 100vh;
@@ -10,7 +8,7 @@
 }
 
 .page-swiper {
-    padding-top: 70px;
+    /*padding-top: 70px;*/
 }
 
 #title {
@@ -22,8 +20,7 @@
 }
 
 #phoblogo {
-
-    display:block;
+    display: block;
     margin: auto;
     width: 200px;
     max-height: 140px;
@@ -102,18 +99,12 @@ input[type=text] {
     margin-bottom: 20px;
 }
 
-.search-result {
-    position: relative;
-}
-
 #m-search {
     position: relative;
-    margin-top: 80px;
 }
 
 #b-search {
     position: relative;
-    margin-top: 80px;
 }
 
 .navbar {
@@ -127,13 +118,21 @@ input[type=text] {
 .search-result {
     position: relative;
     top: -7px;
-    z-index: 0;
+    z-index: 100;
     display: none;
 }
 
 .search-result li:hover {
     background: #eee;
     cursor: pointer;
+}
+
+div.search-result {
+    overflow-y: scroll;
+}
+
+ul.collection {
+    overflow-y: scroll;
 }
 
 
@@ -148,10 +147,21 @@ input[type=text] {
     margin-left: 20px;
 }*/
 
-.recommend-wrapper .btn {
+.recommend-wrapper .btn,
+.random-wrapper .btn {
     padding: 0 1rem;
     height: 32px;
     line-height: 32px;
+}
+
+img.cover {
+    width: 100%;
+    height: 100%;
+}
+
+img.cover {
+    width: 100%;
+    height: auto;
 }
 
 @font-face {

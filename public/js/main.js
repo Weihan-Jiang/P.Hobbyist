@@ -41,14 +41,22 @@ $(function() {
         }, 500);
     })
 
-    $search.on('blur', function() {
-        console.log("blur?");
-        $('form').animate({
-            paddingLeft: "8rem"
-        }, 500);
-        $('.search-result').hide();
+    /*   $search.on('blur', function() {
+           $('form').animate({
+               paddingLeft: "8rem"
+           }, 500);
+           $('.search-result').hide();
+       })*/
+
+    var $randomContent = $('.random-wrapper-movie');
+    var $random = $('.random-movie.btn');
+    $randomContent.hide();
+    $random.on('click', function() {
+        console.log('clicked random button');
+        $random.hide();
+        $randomContent.show();
+        console.log('showed result');
 
     })
-
 
 });

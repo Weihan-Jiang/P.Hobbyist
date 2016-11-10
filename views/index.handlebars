@@ -20,7 +20,7 @@
 
 <body>
 
-    <h1 id="title" class="container"><img src="img/phobbyistlogo.jpg" id="phoblogo"></h1>
+    <!--<h1 id="title" class="container"><img src="img/phobbyistlogo.jpg" id="phoblogo"></h1>-->
     <!-- Slider main container -->
     <div class="swiper-container swiper-container-o">
         <!-- Additional required wrapper -->
@@ -46,8 +46,8 @@
                                     </nav>
                                 </div>
                                 <div class="search-result z-depth-2">
-                                    <ul class="collection">
-                                        {{#each results}}
+                                    <ul class="collection" id="movie-search-result">
+                                        <!--{{#each results}}
                                         <li class="collection-item">
                                             <div class="card horizontal movie-card" id="{{title}}">
                                                 <div class="card-image">
@@ -58,12 +58,12 @@
                                                         <p>{{title}}</p>
                                                     </div>
                                                     <div class="card-action">
-                                                        <a class="waves-effect waves-light btn" id="add"><i class="material-icons left">add</i>add</a>
+                                                        <a class="waves-effect waves-light btn add" id=""><i class="material-icons left">add</i>add</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </li>
-                                        {{/each}}
+                                        {{/each}}-->
                                     </ul>
                                 </div>
                             </div>
@@ -89,21 +89,23 @@
                                         <div class="swiper-wrapper">
                                             <div class="swiper-slide valign-wrapper">
                                                 <div class="container">
+                                                    {{#with recommend}}
                                                     <div class="recommend-wrapper row">
                                                         <div class="col s4 ">
-                                                            <img class="z-depth-1 left" src="{{poster}}" alt="movie cover" width="83.325px" height="124.988px">
+                                                            <img class="z-depth-1 left cover" src="{{poster}}" alt="movie cover">
                                                         </div>
                                                         <div class="col s8">
                                                             <p>Recommend</p>
-                                                            <p>title: {{title}}</p>
-                                                            <p>tags: {{#each tags}}
+                                                            <p>{{title}}</p>
+                                                            <!--<p>tags: {{#each tags}}
                                                                 <div class="chip">{{this}}</div>
                                                                 {{/each}}
-                                                            </p>
-                                                            <a class="waves-effect waves-light btn small">add</a>
-                                                            <a class="waves-effect waves-light btn small">detail</a>
+                                                            </p>-->
+                                                            <a class="waves-effect waves-light btn small" id="add{{imdb}}"><i class="material-icons left">add</i>add</a>
+                                                            <a href="movieDetail/{{imdb}}" class="waves-effect waves-light btn small">detail</a>
                                                         </div>
                                                     </div>
+                                                    {{/with}}
                                                 </div>
                                                 <!-- <div class="card-wrapper">
                                                     <div class="card  horizontal">
@@ -123,20 +125,22 @@
                                             </div>
                                             <div class="swiper-slide valign-wrapper">
                                                 <div class="container valign">
-                                                    <div class="recommend-wrapper row">
+                                                    <a class="waves-effect waves-light btn random-movie">Just Give Me a Movie</a>
+                                                    <div class="random-wrapper random-wrapper-movie row">
+                                                        {{#with random}}
                                                         <div class="col s4 ">
-                                                            <img class="z-depth-1 left" src="{{poster}}" alt="movie cover" width="83.325px" height="124.988px">
+                                                            <img class="z-depth-1 left cover" src="{{poster}}" alt="movie cover">
                                                         </div>
                                                         <div class="col s8">
-                                                            <p>Recommend</p>
-                                                            <p>title: {{title}}</p>
-                                                            <p>tags: {{#each tags}}
+                                                            <p>{{title}}</p>
+                                                            <!--<p>tags: {{#each tags}}
                                                                 <div class="chip">{{this}}</div>
                                                                 {{/each}}
-                                                            </p>
-                                                            <a class="waves-effect waves-light btn small">add</a>
-                                                            <a class="waves-effect waves-light btn small">detail</a>
+                                                            </p>-->
+                                                            <a class="waves-effect waves-light btn small">watch</a>
+                                                            <a href="movieDetail/{{imdb}}" class="waves-effect waves-light btn small">detail</a>
                                                         </div>
+                                                        {{/with}}
                                                     </div>
                                                 </div>
                                                 <!--<div class="card-wrapper">

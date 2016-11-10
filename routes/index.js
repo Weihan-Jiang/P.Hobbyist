@@ -3,11 +3,12 @@ const api_base_url = "https://api.themoviedb.org/3/";
 
 var request = require('request');
 var movies = require("../public/data/movie/user_movie.json");
+var indexJSON = require("../public/data/movie/index.json");
 var fs = require('fs');
 
 exports.view = function(req, res) {
 
-    res.render('index');
+    res.render('index', indexJSON);
 
 };
 
@@ -21,6 +22,13 @@ exports.search = function(req, res) {
             var searchResult = JSON.parse(body);
             console.log(JSON.stringify(searchResult));
             //console.log(res);
+            fs.writeFile('../P.Hobbyist/public/data/movie/searchResult.json', JSON.stringify(searchResult), 'utf8', function(err) {
+                if (err) throw err;
+                else{
+                    
+                }
+
+            });
             res.render('index', searchResult);
         } else {
             console.log('error: ' + response.statusCode)
