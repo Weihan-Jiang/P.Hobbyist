@@ -30,12 +30,14 @@ $(function() {
 
     })
 
-
-
+    /*    $('i.material-icons.close').hide();
+     */
     var $search = $('.search:input');
     $('.search-result').hide();
+    $('i.material-icons.close').hide();
 
     $search.on('focus', function() {
+        $('i.material-icons.close').show();
         $('form').animate({
             paddingLeft: "0px"
         }, 500);
@@ -49,6 +51,8 @@ $(function() {
 
     $('i.material-icons.close').on('click', function() {
         $('.search-result').hide();
+        $('i.material-icons.close').hide();
+        $search.val('');
     })
 
     var $randomContent = $('.random-wrapper-movie');
