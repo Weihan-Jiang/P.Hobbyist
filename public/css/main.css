@@ -1,3 +1,5 @@
+
+
 .swiper-container {
     width: 100%;
     height: 100vh;
@@ -14,8 +16,17 @@
 #title {
     position: absolute;
     z-index: 200;
+    margin-left: 15px;
     /*left: 20px;
     top: 10px;*/
+}
+
+#phoblogo {
+
+    display:block;
+    margin: auto;
+    width: 200px;
+    max-height: 140px;
 }
 
 .category-title {
@@ -93,6 +104,16 @@ input[type=text] {
 
 .search-result {
     position: relative;
+}
+
+#m-search {
+    position: relative;
+    margin-top: 80px;
+}
+
+#b-search {
+    position: relative;
+    margin-top: 80px;
 }
 
 .navbar {

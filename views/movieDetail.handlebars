@@ -11,7 +11,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
-    
+    <link rel="stylesheet" href="/css/movieDetail.css">
     <!-- jQuery library -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
@@ -22,17 +22,17 @@
 </head>
 
 <body>
-    <div class="jumbotron">
+    <div class="jumbotron" id = "headerDetail">
         <div class="container">
             <div class="row" id="top">
                 <!-- need to be filled later-->
                 <div class="col-sm-6">
-                    <a href="movie.html">
+                    <button id="back">
                         <p>back</p>
-                    </a>
+                    </button>
                 </div>
                 <div class="col-sm-6 title">
-                    <p style="text-align:right">Hobbyist</p>
+                    <p style="text-align:center; font-weight: bold; text-decoration: underline;">Movie Info</p>
                 </div>
             </div>
         </div>
@@ -43,7 +43,9 @@
             <div class="col-sm-2"></div>
 
             <div class="col-sm-4">
-                <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" style="width:52%;height:auto"></img>
+
+                <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" id = "history-img"></img>
+
             </div>
 
             <div class="col-sm-6" id="middle-right">
@@ -51,13 +53,20 @@
                 <div class="row" id="middle-right-button">
                     <div class="col-sm-6">
                         <a class="waves-effect waves-light btn" id="watched"><i class="material-icons left">cloud</i>Watched</a>
+
+
+
                     </div>
-                    <div class="col-sm-6">
+                  <!--  <div class="col-sm-6">
+
                         <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>delete</a>
                     </div>
-                </div>
+                </div> -->
                 <div class="row" id="movie description">
-                    <div class="col-sm-8">
+
+                    <div class="col-sm-12">
+
+                    <div class="col-sm-8" style = "margin-top: 30px;">
                         {{overview}}
                     </div>
                 </div> 
@@ -70,16 +79,14 @@
         <div class="row" id="bottom">
             <div class="col-sm-6"></div>
             <div class="col-sm-6">
-                <h4>Available on</h4>
+                <h4 style="text-align: center;">Available on</h4>
                 <div class="row" id="available web">
                     <div class="col-sm-2">
-                        <a href="https://www.netflix.com/" target="_blank">
-                            <p>Netflix</p>
+                        <a href="https://www.netflix.com/" target="_blank" style = "margin-left: 80px;">
+                            Netflix
                         </a>
-                    </div>
-                    <div class="col-sm-2">
-                        <a hreg="http://www.hulu.com" target="_blank">
-                            <p>Hulu</p>
+                        <a hreg="http://www.hulu.com" target="_blank" style = "margin-left: 80px;">
+                            Hulu
                         </a>
                     </div>
                 </div>
@@ -112,11 +119,12 @@
 
     <!-- materialize-->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <script>
+    <!--script>
         $(document).ready(function() {
             $('[data-toggle="popover"]').popover();
         });
-    </script>
+    </script-->
+    <script src="/js/movieDetail.js"></script>
 </body>
 
 </html>

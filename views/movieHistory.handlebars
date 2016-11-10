@@ -49,9 +49,9 @@
 			<div class="col s2">
 				<label>tags</label>
 			</div>
-			<div class="col s10">
+			<div class="col s10 tag-field">
 				{{#each tags}}
-				<div class="chip">{{tag-name}}</div>
+				<div class="tag chip waves-effect" data-filter="{{this}}">{{this}}</div>
 				{{/each}}
 			</div>
 		</div>
@@ -60,12 +60,13 @@
 	<div class="list-wrapper">
 		<div class="row">
 			<aside class="date col s3">
-				<time datetime="2016-10">October</time>
+				<time datetime="2016-10">November</time>
 			</aside>
 			<div class="movieList col s8">
-				<div class="row">
+				<div class="movie-grid row" id= "bgcolor">
 					{{#each movies}}
 					{{#if watched}}
+					<div class="movie-item {{#each tags}}{{this}} {{/each}} col s12  ">
 					<div class="col s12">
 						<div class="card horizontal movie-card" id="{{title}}">
 							<div class="card-image">
@@ -105,9 +106,9 @@
 		</ul>
 	</div>
 
-
-
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+		crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
 	<!-- Bootstrap-->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
 		crossorigin="anonymous"></script>
@@ -116,6 +117,60 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
 	<!-- javascript-->
 	<script src="js/main.js"></script>
+
+	<script>
+	    
+		// init Isotope
+        var $grid = $('.movie-grid').isotope({
+            itemSelector: '.movie-item'
+        });
+
+        // store filter for each group
+        var filters = [];
+
+        function addFilter(filter) {
+			filter="."+filter;
+            if (filters.indexOf(filter) == -1) {
+                filters.push(filter);
+				console.log(filter+" is added into filters array");
+            }
+        }
+
+        function removeFilter(filter) {
+						filter="."+filter;
+
+            var index = filters.indexOf(filter);
+            if (index != -1) {
+                filters.splice(index, 1);
+				console.log(filter+" is removed from filters array");
+            }
+        }
+
+        $tag = $(".tag");
+
+		$tag.on('click',function(event){
+			$this=$(this);
+			var isChecked = $(this).hasClass('is-checked');
+			var filterValue = $this.attr('data-filter');
+			console.log("filter loaded "+filterValue);
+			if(isChecked){
+				console.log("isChecked = true , remove isChecked and filter");
+				$(this).removeClass('is-checked red lighten-2 grey-text text-lighten-5');
+				removeFilter(filterValue);
+				console.log(filterValue+" is removed");
+			}
+			else {
+				console.log("isChecked = false , add isChecked and filter");
+				$(this).addClass('is-checked red lighten-2 grey-text text-lighten-5');
+				addFilter(filterValue);
+				console.log(filterValue+" is added");
+
+			}
+			$grid.isotope({ filter: filters.join(',') });
+		})
+
+
+    </script>
 </body>
 
 </html>
