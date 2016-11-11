@@ -8,7 +8,6 @@ $(function() {
         console.log(value);
         if (value.length > 1) {
             var movieSearchAPI = api_base_url + "search/movie/" + "?api_key=" + api_key + "&language=en-US&query=" + value + "&page=1";
-            $.post("/" + value);;
             var settings = {
                 "async": true,
                 "crossDomain": true,
@@ -32,7 +31,8 @@ $(function() {
                     searchItem += searchResult.results[i].title;
                     searchItem += '</p></div><div class="card-action"><a class="waves-effect waves-light btn detail" id="';
                     searchItem += searchResult.results[i].id;
-                    searchItem += '">detail</a></div></div></div></li>';
+                    searchItem += '" href="movieDetail/a' + searchResult.results[i].id;
+                    searchItem += '">detail</a></div></div></div></li>'
 
                 }
                 console.log(searchItem);

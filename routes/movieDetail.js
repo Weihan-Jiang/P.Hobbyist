@@ -28,6 +28,11 @@ function getMovieInfo(imdb) {
 
 exports.view = function(req, res) {
     var id = req.params.id;
+    var newMovie = false;
+    if (id.charAt(0) == 'a') {
+        id = id.substr(1);
+        newMovie = true;
+    }
     console.log("movie id is " + id);
     var movieInfoAPI = api_base_url + "movie/" + id + "?api_key=" + api_key;
     console.log(movieInfoAPI);
@@ -36,7 +41,14 @@ exports.view = function(req, res) {
             console.log(body);
             var movieInfo = JSON.parse(body);
             console.log("!!!movieINFO" + JSON.stringify(movieInfo));
+            if (newMovie) {
+                movieInfo.newMovie = true;
+            } else {
+                movieInfo.newMovie = (true == newMovie);
+            }
             res.render('movieDetail', movieInfo);
+            console.log(movieInfo.newMovie);
+
         } else {
             console.log('error: ' + response.statusCode)
             console.log(body);
@@ -68,4 +80,10 @@ exports.update = function(req, res) {
         }
 
     }
+};
+
+exports.add = function(req, res) {
+    console.log(req.body);
+    fs.writeFileSync("public/data/movie/user_movie.json", JSON.stringify(req.body));
+    /* res.sendStatus(200);*/
 };

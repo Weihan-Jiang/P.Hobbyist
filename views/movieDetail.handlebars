@@ -22,7 +22,7 @@
 </head>
 
 <body>
-    <div class="jumbotron" id = "headerDetail">
+    <div class="jumbotron" id="headerDetail">
         <div class="container">
             <div class="row" id="top">
                 <!-- need to be filled later-->
@@ -44,7 +44,7 @@
 
             <div class="col-sm-4">
 
-                <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" id = "history-img"></img>
+                <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" id="history-img"></img>
 
             </div>
 
@@ -52,49 +52,49 @@
                 <h2>{{title}}</h2>
                 <div class="row" id="middle-right-button">
                     <div class="col-sm-6">
-                        <a class="waves-effect waves-light btn" id="watched"><i class="material-icons left">cloud</i>Watched</a>
-
+                        <a class="waves-effect waves-light btn" id="watched"><i class="material-icons left">cloud</i>Watched</a> {{#if newMovie}}
+                        <a class="waves-effect waves-light btn add" id="{{id}}"><i class="material-icons left">add</i>add</a> {{/if}}
 
 
                     </div>
-                  <!--  <div class="col-sm-6">
+                    <!--  <div class="col-sm-6">
 
                         <a class="waves-effect waves-light btn"><i class="material-icons left">cloud</i>delete</a>
                     </div>
                 </div> -->
-                <div class="row" id="movie description">
+                    <div class="row" id="movie description">
 
-                    <div class="col-sm-12">
+                        <div class="col-sm-12">
 
-                    <div class="col-sm-8" style = "margin-top: 30px;">
-                        {{overview}}
-                    </div>
-                </div> 
-                    <p style="margin-bottom:0px">Tag</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="row" id="bottom">
-            <div class="col-sm-6"></div>
-            <div class="col-sm-6">
-                <h4 style="text-align: center;">Available on</h4>
-                <div class="row" id="available web">
-                    <div class="col-sm-2">
-                        <a href="https://www.netflix.com/" target="_blank" style = "margin-left: 80px;">
-                            Netflix
-                        </a>
-                        <a hreg="http://www.hulu.com" target="_blank" style = "margin-left: 80px;">
-                            Hulu
-                        </a>
+                            <div class="col-sm-8" style="margin-top: 30px;">
+                                {{overview}}
+                            </div>
+                        </div>
+                        <p style="margin-bottom:0px">Tag</p>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!--    <div class="container">
+            <div class="container">
+                <div class="row" id="bottom">
+                    <div class="col-sm-6"></div>
+                    <div class="col-sm-6">
+                        <h4 style="text-align: center;">Available on</h4>
+                        <div class="row" id="available web">
+                            <div class="col-sm-2">
+                                <a href="https://www.netflix.com/" target="_blank" style="margin-left: 80px;">
+                            Netflix
+                        </a>
+                                <a hreg="http://www.hulu.com" target="_blank" style="margin-left: 80px;">
+                            Hulu
+                        </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--    <div class="container">
         <div class="dropup row">
             <div class="col-sm-11"></div>
             <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Setting<span class="caret"></span></button>
@@ -106,25 +106,25 @@
         </div>
     </div>-->
 
-    <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
-        <a class="btn-floating btn-large red">
-            <i class="material-icons">menu</i>
-        </a>
-        <ul>
-            <li><a class="btn-floating red" href="/movie"><i class="material-icons">theaters</i></a></li>
-            <li><a class="btn-floating green" href="/book"><i class="material-icons">book</i></a></li>
-            <li><a class="btn-floating blue" href="/"><i class="material-icons">home</i></a></li>
-        </ul>
-    </div>
+            <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
+                <a class="btn-floating btn-large red">
+                    <i class="material-icons">menu</i>
+                </a>
+                <ul>
+                    <li><a class="btn-floating red" href="/movie"><i class="material-icons">theaters</i></a></li>
+                    <li><a class="btn-floating green" href="/book"><i class="material-icons">book</i></a></li>
+                    <li><a class="btn-floating blue" href="/"><i class="material-icons">home</i></a></li>
+                </ul>
+            </div>
 
-    <!-- materialize-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
-    <!--script>
+            <!-- materialize-->
+            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+            <!--script>
         $(document).ready(function() {
             $('[data-toggle="popover"]').popover();
         });
     </script-->
-    <script src="/js/movieDetail.js"></script>
+            <script src="/js/movieDetail.js"></script>
 </body>
 
 </html>

@@ -86,6 +86,10 @@ input[type=text] {
     width: 100%;
 }
 
+.main {
+    margin-top: 30px;
+}
+
 .main .row:first-of-type {
     margin-bottom: 0px;
 }
