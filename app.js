@@ -128,6 +128,7 @@ app.get('/bookDetail/:id', bookDetail.view);
 app.get('/movieDetail/:id', movieDetail.view);
 app.post('/movieDetail/:id/:status', movieDetail.update);
 app.post('/movieDetail/add', movieDetail.add);
+app.post('/check', login.check);
 //app.post('/:keyword', index.search);
 // Example route
 

@@ -1,4 +1,4 @@
-@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css";*/
 label {
   cursor: pointer;
   color: #666; 
@@ -102,12 +102,12 @@ h1{
   border: 1px solid #E91E63;
 }
 
-#signup__email{
+#user{
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABcAAAAXCAYAAADgKtSgAAAA7UlEQVR4Aa2VCQ2EMBREawELWKgFLKwFLNRCLWABC1jAwF4WsMBy/E1+JsMxSZM8bt70bvi8XneJC8kId1DE08LXzsNCpcnPxR3cjxAgy9uF2YmDEiCJ1QBVjNQmpwGyGDEpDaBiGG5KwLQQmbwzccsFeoAuFgKs18/bWKQ2eb/eNAuzkUqU3FyDk1+Okvwvkes0TzTxd6FHebAAnBiV65NMRgWbUInJ8cMIMuy0hwEFInII+C7MICZDF5pSkI9EzALyqVxc8VCEpUe5LubrEe/QBncZkcYVLIO8wCy1mvtJVNtNaTpfpVSQdqH6ARac3tEPInsoAAAAAElFTkSuQmCC') left 8px center no-repeat;
   padding-left: 40px;
 }
 
-#signup__password{
+#password{
   background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAXCAYAAADpwXTaAAAAuUlEQVR4AcXUUY0DIRCH8bGABSxgYS3UwloYC1g4LVhAwebWAhbo12QeNlzKUkJ6m/ye/sn30AmV3vd7HB56sUPekc4YUVGQkFFxInwS+7GIQi48sm1hJBZQ8Wg343AijcQiTkjHjgp3F0tGOjaLbSMxhfR8NeZtzHbN7UaFXoPNDzotw4ldpCJCJngUxD+XmZReRmMBbkVMbS/rYlgRaw80HzMVuipWoP97zSkWW/oCFr/N5l9jijWe5ji9FMKDOfwAAAAASUVORK5CYII=') left 8px center no-repeat;
   padding-left: 40px;
 }
