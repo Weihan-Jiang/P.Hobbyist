@@ -1,7 +1,28 @@
+const api_key = "f97dbeff69a64a985e1c6f3aac12b9c7";
+const api_base_url = "https://api.themoviedb.org/3/";
+
 var currentLocation = window.location.href;
 console.log(currentLocation);
 var index = currentLocation.lastIndexOf("/");
 var imdb = currentLocation.substring(index + 1);
+console.log(imdb);
+if (imdb.charAt(0) == 'a') {
+    imdb = imdb.substr(1);
+    console.log("imdb after modification" + imdb);
+    var settings = {
+        "async": true,
+        "crossDomain": true,
+        "url": api_base_url + "movie/" + imdb + "?api_key=" + api_key,
+        "method": "GET",
+        "headers": {},
+        "data": "{}"
+    }
+    console.log(settings);
+    $.ajax(settings).done(function(response) {
+        console.log(response);
+        imdb = response.imdb_id;
+    });
+}
 console.log(imdb);
 
 
