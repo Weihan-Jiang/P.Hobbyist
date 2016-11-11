@@ -29,9 +29,11 @@ function getMovieInfo(imdb) {
 exports.view = function(req, res) {
     var id = req.params.id;
     var newMovie = false;
+    var watched;
     if (id.charAt(0) == 'a') {
         id = id.substr(1);
         newMovie = true;
+        watched = false;
     }
     console.log("movie id is " + id);
     var movieInfoAPI = api_base_url + "movie/" + id + "?api_key=" + api_key;
@@ -41,26 +43,52 @@ exports.view = function(req, res) {
             console.log(body);
             var movieInfo = JSON.parse(body);
             console.log("!!!movieINFO" + JSON.stringify(movieInfo));
-            if (newMovie) {
+            for (var temp = 0; temp < movies.movies.length; temp++) {
+                console.log("right now check :" + movies.movies[temp]);
+                if (movies.movies[temp].title == movieInfo.title) {
+                    console.log('find the movie ' + movies.movies[temp].title);
+                    newMovie = false;
+                    console.log("set newmovie to false" + newMovie);
+                    console.log("watched is" + movies.movies[temp].watched);
+                    if (movies.movies[temp].watched) {
+                        watched = true;
+                        console.log("set watched to true, " + watched);
+                        break;
+                    }
+                }
+            }
+            movieInfo.newMovie = (newMovie == true);
+            movieInfo.watched = (watched == true);
+            /*if (newMovie) {
                 console.log("trying to find movies");
                 for (var i = 0; i < movies.movies.length; i++) {
                     if (movies.movies[i].title == movieInfo.title) {
                         newMovie = 0;
                         console.log('0');
                         movieInfo.newMovie = (true == newMovie);
+                        if (movies.movies[i].watched) {
+                            watched = true;
+                            movieInfo.watched = true;
+                        } else {
+                            watched = false;
+                            movieInfo.watched = (true==watched);
+                        }
                         break;
                     } else {
                         console.log("1");
                         movieInfo.newMovie = true;
+                        movieInfo.watched = false;
                     }
                 }
 
             } else {
                 movieInfo.newMovie = (true == newMovie);
-            }
+                movieInfo.watched = false;
+            }*/
+
             res.render('movieDetail', movieInfo);
             console.log(movieInfo.newMovie);
-
+            console.log(movieInfo.watched);
         } else {
             console.log('error: ' + response.statusCode)
             console.log(body);
