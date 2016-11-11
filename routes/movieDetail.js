@@ -42,7 +42,19 @@ exports.view = function(req, res) {
             var movieInfo = JSON.parse(body);
             console.log("!!!movieINFO" + JSON.stringify(movieInfo));
             if (newMovie) {
-                movieInfo.newMovie = true;
+                console.log("trying to find movies");
+                for (var i = 0; i < movies.movies.length; i++) {
+                    if (movies.movies[i].title == movieInfo.title) {
+                        newMovie = 0;
+                        console.log('0');
+                        movieInfo.newMovie = (true == newMovie);
+                        break;
+                    } else {
+                        console.log("1");
+                        movieInfo.newMovie = true;
+                    }
+                }
+
             } else {
                 movieInfo.newMovie = (true == newMovie);
             }
