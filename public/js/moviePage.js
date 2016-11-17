@@ -55,12 +55,14 @@ $(function() {
             })
             $(this).removeClass('watched');
             $('a#watched i').text("cloud");
+            
         } else {
             $.post(imdb + "/true", {
                 "watched": true
             })
             $(this).addClass('watched');
             $('a#watched i').text("done");
+            
         }
     });
 });
