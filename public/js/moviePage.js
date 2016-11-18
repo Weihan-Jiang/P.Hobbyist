@@ -38,6 +38,7 @@ $(function() {
                     console.log("find the movie and watched");
                     $('a#watched i').text("done");
                     $('a#watched').addClass("watched");
+                    $('#watched').text('add back to watchlist');
                     break;
                 }
             }
@@ -55,14 +56,15 @@ $(function() {
             })
             $(this).removeClass('watched');
             $('a#watched i').text("cloud");
-            
+            $('#watched').text('Seen this Moive?');
+
         } else {
             $.post(imdb + "/true", {
                 "watched": true
             })
             $(this).addClass('watched');
             $('a#watched i').text("done");
-            
+            $('#watched').text('Added to History');
         }
     });
 });
