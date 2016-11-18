@@ -32,9 +32,9 @@
         </nav>
         <nav>
             <div class="nav-wrapper">
-                <form>
+                <form id="moviePageSearch">
                     <div class="input-field">
-                        <input id="search" type="search" placeholder="Find and add movies" required>
+                        <input id="search" class="search" type="search" placeholder="Find and add movies" required>
                         <label for="search"><i class="material-icons">search</i></label>
                         <i class="material-icons">close</i>
                     </div>
@@ -42,6 +42,27 @@
 
             </div>
         </nav>
+        <div class="search-result z-depth-2">
+            <ul class="collection" id="movie-search-result">
+                <!--{{#each results}}
+                                        <li class="collection-item">
+                                            <div class="card horizontal movie-card" id="{{title}}">
+                                                <div class="card-image">
+                                                    <img src="{{poster}}" class="cover" alt="movie">
+                                                </div>
+                                                <div class="card-stacked">
+                                                    <div class="card-content">
+                                                        <p>{{title}}</p>
+                                                    </div>
+                                                    <div class="card-action">
+                                                        <a class="waves-effect waves-light btn add" id=""><i class="material-icons left">add</i>add</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        {{/each}}-->
+            </ul>
+        </div>
     </header>
     <div class="tag-wrapper">
         <div class="row">
@@ -171,6 +192,8 @@
             });
         })
     </script>
+    <script src="js/search.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

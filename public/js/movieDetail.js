@@ -1,5 +1,5 @@
-const api_key = "f97dbeff69a64a985e1c6f3aac12b9c7";
-const api_base_url = "https://api.themoviedb.org/3/";
+/*const api_key = "f97dbeff69a64a985e1c6f3aac12b9c7";
+const api_base_url = "https://api.themoviedb.org/3/";*/
 
 $(document).ready(function() {
 
@@ -8,7 +8,9 @@ $(document).ready(function() {
     });
 
     $('[data-toggle="popover"]').popover();
+    console.log("!!!!");
     var $add = $('a.add.btn');
+    console.log("$add is " + $add);
     $add.on('click', function() {
         $.getJSON("../data/movie/user_movie.json").done(function(data) {
             var user_movie_JSON = data;

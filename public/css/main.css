@@ -62,6 +62,10 @@ h2 {
     max-height: 139.663px;
 }
 
+.recentCard {
+    width: 65%;
+}
+
 input[type=text] {
     display: inline-block;
     width: auto;
@@ -124,6 +128,7 @@ input[type=text] {
     top: -7px;
     z-index: 100;
     display: none;
+    max-height: 70vh;
 }
 
 .search-result li:hover {

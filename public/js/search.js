@@ -22,7 +22,7 @@ $(function() {
                 var searchResult = response;
                 var searchItem = '';
 
-                for (var i = 0; i < 3; i++) {
+                for (var i = 0; i < 5; i++) {
                     searchItem += '<li class="collection-item"><div class="card horizontal movie-card" id="';
                     searchItem += searchResult.results[i].title;
                     searchItem += '"> <div class = "card-image" ><img src = "';

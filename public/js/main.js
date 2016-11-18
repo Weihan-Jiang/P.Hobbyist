@@ -12,12 +12,13 @@ $(function() {
         direction: 'horizontal',
         loop: false,
         nested: true,
-        slidesPerView: 5,
+        slidesPerView: 'auto',
         spaceBetween: 30,
-        free: true,
+        freeMode: true,
+        centeredSlides: true,
         breakpoints: {
             767: {
-                slidesPerView: 3,
+                slidesPerView: 'auto',
                 spaceBetween: 30
             }
         }
@@ -38,19 +39,21 @@ $(function() {
 
     $search.on('focus', function() {
         $('i.material-icons.close').show();
-        $('form').animate({
+        $('#indexMovieSearch').animate({
             paddingLeft: "0px"
         }, 500);
+
     })
 
     $search.on('blur', function() {
-        $('form').animate({
+        $('#indexMovieSearch').animate({
             paddingLeft: "8rem"
         }, 500);
+        $('.search-result').fadeOut();
     })
 
     $('i.material-icons.close').on('click', function() {
-        $('.search-result').hide();
+        $('.search-result').fadeOut();
         $('i.material-icons.close').hide();
         $search.val('');
     })
@@ -61,7 +64,7 @@ $(function() {
     $random.on('click', function() {
         console.log('clicked random button');
         $random.hide();
-        $randomContent.show();
+        $randomContent.fadeIn();
         console.log('showed result');
 
     })
