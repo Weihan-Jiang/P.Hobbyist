@@ -7,7 +7,14 @@ var indexJSON = require("../public/data/movie/index.json");
 var fs = require('fs');
 
 exports.view = function(req, res) {
-
+    var length = movies.movies.length;
+    var index = Math.floor((Math.random() * (length - 1)));
+    var randomMovie = movies.movies[index];
+    while (randomMovie.watched) {
+        index = Math.floor((Math.random() * (length - 1)));
+        randomMovie = movies.movies[index];
+    }
+    indexJSON.random = randomMovie;
     res.render('index', indexJSON);
 
 };
@@ -24,8 +31,8 @@ exports.search = function(req, res) {
             //console.log(res);
             fs.writeFile('../P.Hobbyist/public/data/movie/searchResult.json', JSON.stringify(searchResult), 'utf8', function(err) {
                 if (err) throw err;
-                else{
-                    
+                else {
+
                 }
 
             });
