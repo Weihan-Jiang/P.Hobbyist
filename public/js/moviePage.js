@@ -57,14 +57,15 @@ $(function() {
             $(this).removeClass('watched');
             $('a#watched i').text("cloud");
             $('#watched').text('Seen this Moive?');
-
+            Materialize.toast('removed from History', 2000);
         } else {
             $.post(imdb + "/true", {
                 "watched": true
             })
             $(this).addClass('watched');
             $('a#watched i').text("done");
-            $('#watched').text('Added to History');
+            $('#watched').text('add back to watchlist');
+            Materialize.toast('Added to History', 2000);
         }
     });
 });
