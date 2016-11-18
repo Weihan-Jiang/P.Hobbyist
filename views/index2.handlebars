@@ -35,7 +35,7 @@
                                     <nav>
                                         <div class="nav-wrapper">
                                             <a href="movie" class="brand-logo left">Movies</a>
-                                            <form style="padding-left:8rem">
+                                            <form id="indexMovieSearch" style="padding-left:8rem">
                                                 <div class="input-field">
                                                     <input id="m-search" placeholder="Looking for movies?" class="search" type="search" required>
                                                     <label for="search"><i class="material-icons">search</i></label>
@@ -196,41 +196,29 @@
                                 <h2>Recent</h2>
                                 <div class="content swiper-container swiper-container-n">
                                     <div class="swiper-wrapper">
+                                        {{#each recent}}
                                         <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
+                                            <div class="card recentCard valign ">
                                                 <div class="card-image">
-                                                    <img src="{{book-cover}}" class="book-cover">
+                                                    <img src="https://image.tmdb.org/t/p/w300/{{backdrop_path}}">
+                                                    <span class="card-title">{{title}}</span> </div>
+                                                <div class="card-content hide-on-small-only">
+                                                    <p>{{overview}}</p>
                                                 </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
+                                                <div class="card-action">
+                                                    {{#if redirected}}
+                                                    <a href="#">watched?</a> {{/if}} {{#if added}} {{#if watched}}
+                                                    <a href="#">recommend</a> {{else}}
+                                                    <a href="#">watch now</a>{{/if}} {{/if}} {{#if newMovie}}
+                                                    <a href="#">add</a>
+                                                    <a href="movieDetail/a{{id}}">detail</a> {{else}}
+                                                    <a href="movieDetail/{{imdb_id}}">detail</a> {{/if}}
+
 
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
+                                        {{/each}}
                                     </div>
                                 </div>
                             </div>
