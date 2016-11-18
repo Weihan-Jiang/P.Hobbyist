@@ -53,6 +53,14 @@ function getPoster() {
 
 exports.view = function(req, res) {
     console.log(movies);
+    var length = movies.movies.length;
+    var index = Math.floor((Math.random() * (length - 1)));
+    var randomMovie = movies.movies[index];
+    while (randomMovie.watched) {
+        index = Math.floor((Math.random() * (length - 1)));
+        randomMovie = movies.movies[index];
+    }
+    movies.random = randomMovie;
     res.render('movie', movies);
 
 };
