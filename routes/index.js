@@ -4,6 +4,8 @@ const api_base_url = "https://api.themoviedb.org/3/";
 var request = require('request');
 var movies = require("../public/data/movie/user_movie.json");
 var indexJSON = require("../public/data/movie/index.json");
+var recentJSON = require("../public/data/movie/recent.json");
+var recommendJSON = require('../public/data/movie/recommend.json');
 var fs = require('fs');
 
 exports.view = function(req, res) {
@@ -14,7 +16,12 @@ exports.view = function(req, res) {
         index = Math.floor((Math.random() * (length - 1)));
         randomMovie = movies.movies[index];
     }
+    index = Math.floor((Math.random() * (recommendJSON.length - 1)));
+    var recommendMovie = recommendJSON[index];
+    console.log("index is " + index);
     indexJSON.random = randomMovie;
+    indexJSON.recent = recentJSON.movies;
+    indexJSON.recommend = recommendMovie;
     res.render('index', indexJSON);
 
 };

@@ -206,10 +206,10 @@
                                                 </div>
                                                 <div class="card-action">
                                                     {{#if redirected}}
-                                                    <a href="#">watched?</a> {{/if}} {{#if added}} {{#if watched}}
-                                                    <a href="#">recommend</a> {{else}}
-                                                    <a href="#">watch now</a>{{/if}} {{/if}} {{#if newMovie}}
-                                                    <a href="#">add</a>
+                                                    <a class="watched" id="{{imdb_id}}">seen?</a> {{/if}} {{#if added}} {{#if watched}} {{#unless recommended}}
+                                                    <a class="recommend" id="{{imdb_id}}">recommend</a>{{/unless}} {{else}}
+                                                    <a class="watchnow" id="{{imdb_id}}">watch now</a>{{/if}} {{/if}} {{#if newMovie}}
+                                                    <a class="add" id="{{imdb_id}}">add</a>
                                                     <a href="movieDetail/a{{id}}">detail</a> {{else}}
                                                     <a href="movieDetail/{{imdb_id}}">detail</a> {{/if}}
 
@@ -398,6 +398,7 @@
     <!-- javascript-->
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

@@ -54,8 +54,9 @@
                     <div class="col-sm-6">
                         <a class="waves-effect waves-light btn" id="watched"><i class="material-icons left">cloud</i>Seen this Movie?</a> {{#if newMovie}}
                         <!--A7-->
-                        <a class="waves-effect waves-light btn add" id="{{id}}"><i class="material-icons left">add</i>Add to WatchList</a> {{/if}} {{#if watched}}
-                        <a class="waves-effect waves-light btn" id="recommend"><i class="material-icons left">cloud</i>recommend</a>{{/if}}
+                        <a class="waves-effect waves-light btn add" id="{{imdb_id}}"><i class="material-icons left">add</i>Add to WatchList</a> {{/if}} {{#if watched}}
+                        {{#if recommend}}<a class="waves-effect waves-light btn recommend recommended" id="{{imdb_id}}"><i class="material-icons left">cloud</i>unrecommend</a>{{else}}
+                        <a class="waves-effect waves-light btn recommend" id="{{imdb_id}}"><i class="material-icons left">cloud</i>recommend</a>{{/if}}{{/if}}
 
 
                     </div>

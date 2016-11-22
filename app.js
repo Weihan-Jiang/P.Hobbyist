@@ -68,6 +68,10 @@ var movieDetail = require('./routes/movieDetail');
 
 var index2 = require('./routes/index2');
 
+var recommend = require('./routes/recommend');
+
+var watched = require('./routes/watched');
+
 // Example route
 
 // var user = require('./routes/user');
@@ -128,10 +132,12 @@ app.get('/movieHistory', movieHistory.view);
 app.get('/login', login.view);
 app.get('/bookDetail/:id', bookDetail.view);
 app.get('/movieDetail/:id', movieDetail.view);
-app.get('/index2',index2.view);
+app.get('/index2', index2.view);
 app.post('/movieDetail/:id/:status', movieDetail.update);
 app.post('/movieDetail/add', movieDetail.add);
 app.post('/check', login.check);
+app.post('/recommend/:id/:status', recommend.update);
+app.post('/watched/:id/:status', watched.update);
 //app.post('/:keyword', index.search);
 // Example route
 

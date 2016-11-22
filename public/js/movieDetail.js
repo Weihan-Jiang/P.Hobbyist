@@ -8,8 +8,10 @@ $(document).ready(function() {
     });
 
     $('[data-toggle="popover"]').popover();
+
     console.log("!!!!");
     var $add = $('a.add.btn');
+    var $recommend = $('a.recommend');
     console.log("$add is " + $add);
     $add.on('click', function() {
         $.getJSON("../data/movie/user_movie.json").done(function(data) {
@@ -52,7 +54,7 @@ $(document).ready(function() {
 
 
                 console.log(newMovie);
-                user_movie_JSON.movies.push(newMovie);
+                user_movie_JSON.movies.unshift(newMovie);
                 user_movie_JSON = JSON.stringify(user_movie_JSON);
                 $.ajax({
                     url: "/movieDetail/add",
@@ -79,5 +81,40 @@ $(document).ready(function() {
                 $add.hide();
             });
         });
+    })
+
+    $recommend.on('click', function() {
+        console.log("recommend button is clicked");
+        var classAttr = $recommend.attr('class');
+        console.log("current status is" + classAttr);
+        if (classAttr.includes("recommended")) {
+            console.log("this movie is recommened, undo recommend");
+            postURL = "/recommend/" + $recommend.attr('id') + "/false";
+            console.log("postURL is " + postURL);
+            $.post(postURL, { "recommend": false }, function(result) {
+                console.log(result);
+                if (result == "200") {
+                    $recommend.removeClass('recommended');
+                    $recommend.text('recommend');
+                    Materialize.toast('successfully undo', 2000);
+                } else {
+                    Materialize.toast('error occurred', 2000);
+                }
+            })
+        } else {
+            postURL = "/recommend/" + $recommend.attr('id') + "/true";
+            console.log("postURL is " + postURL);
+            $.post(postURL, { "recommend": true }, function(result) {
+                console.log(result);
+                if (result == "200") {
+                    $recommend.addClass('recommended');
+                    $recommend.text('undo recommend');
+                    Materialize.toast('recommended', 2000);
+                } else {
+                    Materialize.toast('error occurred', 2000);
+                }
+            })
+
+        }
     })
 });

@@ -28,84 +28,82 @@ function getMovieInfo(imdb) {
 
 
 exports.view = function(req, res) {
+    console.log("start render movieDetail Page");
     var id = req.params.id;
+    console.log('id is ' + id);
     var newMovie = false;
+    console.log("newMovie is " + newMovie);
     var watched;
+    var redirected = false;
+    var recommend = false;
     if (id.charAt(0) == 'a') {
         id = id.substr(1);
+        console.log("get real id " + id);
         newMovie = true;
+        console.log("newMovie is " + newMovie);
         watched = false;
+        console.log("watched is " + watched);
     }
-    console.log("movie id is " + id);
     var movieInfoAPI = api_base_url + "movie/" + id + "?api_key=" + api_key;
-    console.log(movieInfoAPI);
+    console.log("movieInfoAPI is " + movieInfoAPI);
+    console.log("start request");
     request.get(movieInfoAPI, function(error, response, body) {
         if (response.statusCode == 200) {
-            console.log(body);
+            console.log("response is 200");
             var movieInfo = JSON.parse(body);
-            console.log("!!!movieINFO" + JSON.stringify(movieInfo));
+            console.log("findind movie in user_movie");
             for (var temp = 0; temp < movies.movies.length; temp++) {
                 console.log("right now check :" + movies.movies[temp].title);
                 if (movies.movies[temp].title == movieInfo.title) {
                     console.log('find the movie ' + movies.movies[temp].title);
                     newMovie = false;
-                    console.log("set newmovie to false" + newMovie);
+                    console.log("set newmovie to false " + newMovie);
                     console.log("watched is" + movies.movies[temp].watched);
                     if (movies.movies[temp].watched) {
                         watched = true;
                         console.log("set watched to true, " + watched);
-                        break;
+
+                    }
+                    if (movies.movies[temp].redirected) {
+                        redirected = true;
+                        console.log("set redirected to true" + redirected);
+                    }
+                    if (movies.movies[temp].recommend) {
+                        recommend = true;
+                        console.log("set redirected to true" + recommend);
                     }
                     break;
                 }
             }
-            movieInfo.newMovie = (newMovie == true);
-            movieInfo.added = (!(newMovie == true));
-            movieInfo.redirected = (!true);
-            movieInfo.watched = (watched == true);
+            console.log("expected value of newMovie" + newMovie);
+            movieInfo.newMovie = newMovie;
+            console.log("movieInfo,newMovie " + movieInfo.newMovie);
+            console.log("expected value of added" + (!newMovie));
+            movieInfo.added = (!newMovie);
+            console.log("movieInfo,added " + movieInfo.added);
+            console.log("expected value of redirected " + redirected);
+            movieInfo.redirected = redirected;
+            console.log("movieInfo,redirected " + movieInfo.redirected);
+            console.log("expected value of watched " + watched);
+            movieInfo.watched = watched;
+            console.log("movieInfo,watched " + movieInfo.watched);
+            movieInfo.recommend = recommend;
             var notInRecent = true;
-            for (var i = 0; i < indexJSON.recent.length; i++) {
-                console.log("search for movie in indexJSON in view, " + indexJSON.recent[i].title);
-                if (indexJSON.recent[i].title == movieInfo.title) {
+            console.log("now update recentJSON");
+            for (var i = 0; i < recentJSON.movies.length; i++) {
+                console.log("currently at movie in recentJSON in view, " + recentJSON.movies[i].title);
+                if (recentJSON.movies[i].title == movieInfo.title) {
                     notInRecent = false;
-                    indexJSON.recent.unshift(indexJSON.recent[i]);
-                    indexJSON.recent.splice(i + 1, 1);
+                    recentJSON.movies.unshift(recentJSON.movies[i]);
+                    recentJSON.movies.splice(i + 1, 1);
                     console.log("shift to top");
                 }
             }
             if (notInRecent) {
-                indexJSON.recent.unshift(movieInfo);
-                console.log("first element in indexJSON is " + indexJSON.recent[0].title);
+                recentJSON.movies.unshift(movieInfo);
+                console.log("first element in recentJSON is " + recentJSON.movies[0].title);
             }
-            fs.writeFileSync("public/data/movie/index.json", JSON.stringify(indexJSON));
-
-            /*if (newMovie) {
-                console.log("trying to find movies");
-                for (var i = 0; i < movies.movies.length; i++) {
-                    if (movies.movies[i].title == movieInfo.title) {
-                        newMovie = 0;
-                        console.log('0');
-                        movieInfo.newMovie = (true == newMovie);
-                        if (movies.movies[i].watched) {
-                            watched = true;
-                            movieInfo.watched = true;
-                        } else {
-                            watched = false;
-                            movieInfo.watched = (true==watched);
-                        }
-                        break;
-                    } else {
-                        console.log("1");
-                        movieInfo.newMovie = true;
-                        movieInfo.watched = false;
-                    }
-                }
-
-            } else {
-                movieInfo.newMovie = (true == newMovie);
-                movieInfo.watched = false;
-            }*/
-
+            fs.writeFileSync("public/data/movie/recent.json", JSON.stringify(recentJSON));
             res.render('movieDetail', movieInfo);
             console.log("new movie is " + movieInfo.newMovie);
             console.log("wathced is " + movieInfo.watched);
@@ -120,7 +118,7 @@ exports.view = function(req, res) {
 };
 
 exports.update = function(req, res) {
-    console.log("!!!!!");
+    console.log("update watched now ");
     //console.log(req);
     console.log("status is " + req.params.status);
     var imdb = req.params.id;
@@ -141,15 +139,15 @@ exports.update = function(req, res) {
 
     }
     /*    indexJSON = require("../public/data/movie/index.json");*/
-    for (var i = 0; i < indexJSON.recent.length; i++) {
-        if (indexJSON.recent[i].imdb_id == imdb) {
-            console.log("find the movie in indexJSON" + indexJSON.recent[i].title);
-            console.log("watched before modifed " + indexJSON.recent[i].watched);
-            indexJSON.recent[i].watched = (req.param.status === "true");
-            console.log("watched after modified " + indexJSON.recent[i].watched);
-            indexJSON.recent.unshift(indexJSON.recent[i]);
-            indexJSON.recent.splice(i + 1, 1);
-            fs.writeFileSync("public/data/movie/index.json", JSON.stringify(indexJSON));
+    for (var i = 0; i < recentJSON.movies.length; i++) {
+        if (recentJSON.movies[i].imdb_id == imdb) {
+            console.log("find the movie in indexJSON" + recentJSON.movies[i].title);
+            console.log("watched before modifed " + recentJSON.movies[i].watched);
+            recentJSON.movies[i].watched = (req.param.status === "true");
+            console.log("watched after modified " + recentJSON.movies[i].watched);
+            recentJSON.movies.unshift(recentJSON.movies[i]);
+            recentJSON.movies.splice(i + 1, 1);
+            fs.writeFileSync("public/data/movie/recent.json", JSON.stringify(recentJSON));
             break;
         }
     }
@@ -162,25 +160,25 @@ exports.add = function(req, res) {
     /*indexJSON = require("../public/data/movie/index.json");
      */
     console.log("upadta indexJSON file : " + req.body.title);
-    for (var i = 0; i < indexJSON.recent.length; i++) {
-        console.log("currently at index of " + i + " : " + indexJSON.recent[i].title);
-        if (indexJSON.recent[i].imdb_id == imdb) {
+    for (var i = 0; i < recentJSON.movies.length; i++) {
+        console.log("currently at index of " + i + " : " + recentJSON.movies[i].title);
+        if (recentJSON.movies[i].imdb_id == imdb) {
             console.log("found the movie in indexJSON");
-            console.log("added before modified: " + indexJSON.recent[i].added);
-            indexJSON.recent[i].added = true;
-            console.log("added after modified: " + indexJSON.recent[i].added);
-            console.log("newMovie before modifed " + indexJSON.recnet[i].newMovie);
-            indexJSON.recnet[i].newMovie = (!true);
-            console.log("newMovie after modifed " + indexJSON.recnet[i].newMovie);
-            console.log("before shift" + indexJSON.recent[i]);
-            indexJSON.recent.unshift(indexJSON.recent[i]);
-            indexJSON.recent.splice(i + 1, 1);
+            console.log("added before modified: " + recentJSON.movies[i].added);
+            recentJSON.movies[i].added = true;
+            console.log("added after modified: " + recentJSON.movies[i].added);
+            console.log("newMovie before modifed " + recentJSON.movies[i].newMovie);
+            recentJSON.movies[i].newMovie = (!true);
+            console.log("newMovie after modifed " + recentJSON.movies[i].newMovie);
+            console.log("before shift" + recentJSON.movies[i]);
+            recentJSON.movies.unshift(recentJSON.movies[i]);
+            recentJSON.movies.splice(i + 1, 1);
 
-            console.log("after shift" + indexJSON.recent[i]);
+            console.log("after shift" + recentJSON.movies[i]);
             break;
         }
     }
-    fs.writeFileSync("public/data/movie/index.json", JSON.stringify(indexJSON));
+    fs.writeFileSync("public/data/movie/recent.json", JSON.stringify(recentJSON));
 
     /* res.sendStatus(200);*/
 };
