@@ -28,11 +28,11 @@ exports.update = function(req, res) {
         if (recentJSON.movies[i].imdb_id == imdb) {
             console.log("find the movie in recentJSON" + recentJSON.movies[i].title);
             console.log("watched before modifed " + recentJSON.movies[i].watched);
-            recentJSON.movies[i].watched = (req.param.status === "true");
+            recentJSON.movies[i].watched = (req.params.status === "true");
             console.log("watched after modified " + recentJSON.movies[i].watched);
             recentJSON.movies.unshift(recentJSON.movies[i]);
             recentJSON.movies.splice(i + 1, 1);
-            fs.writeFileSync("public/data/movie/index.json", JSON.stringify(recentJSON));
+            fs.writeFileSync("public/data/movie/recent.json", JSON.stringify(recentJSON));
             break;
         }
     }

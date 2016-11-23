@@ -22,27 +22,25 @@
 </head>
 
 <body>
-    <div class="jumbotron" id="headerDetail">
+    <!--<div class="jumbotron" id="headerDetail">
         <div class="container">
             <div class="row" id="top">
-                <!-- need to be filled later-->
                 <div class="col-sm-6">
-                    <!--<button id="back">
+                    <!<button id="back">
                         <p>back</p>
-                    </button>-->
+                    </button>
                 </div>
                 <div class="col-sm-6 title">
                     <p style="text-align:center; font-weight: bold; text-decoration: underline;">Movie Info</p>
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 
     <div class="container">
         <div class="row" id="middle">
-            <div class="col-sm-2"></div>
 
-            <div class="col-sm-4">
+            <div class="col-sm-4" style="margin-top:40px">
 
                 <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" id="history-img"></img>
 
@@ -52,10 +50,10 @@
                 <h2>{{title}}</h2>
                 <div class="row" id="middle-right-button">
                     <div class="col-sm-6">
-                        <a class="waves-effect waves-light btn" id="watched"><i class="material-icons left">cloud</i>Seen this Movie?</a> {{#if newMovie}}
+                        <a class="waves-effect waves-light btn" id="watched"><i class="material-icons left">cloud</i>Seen this Movie?</a>                        {{#if newMovie}}
                         <!--A7-->
-                        <a class="waves-effect waves-light btn add" id="{{imdb_id}}"><i class="material-icons left">add</i>Add to WatchList</a> {{/if}} {{#if watched}}
-                        {{#if recommend}}<a class="waves-effect waves-light btn recommend recommended" id="{{imdb_id}}"><i class="material-icons left">cloud</i>unrecommend</a>{{else}}
+                        <a class="waves-effect waves-light btn add" id="{{imdb_id}}"><i class="material-icons left">add</i>Add to WatchList</a>                        {{/if}} {{#if watched}} {{#if recommend}}<a class="waves-effect waves-light btn recommend recommended"
+                            id="{{imdb_id}}"><i class="material-icons left">cloud</i>unrecommend</a>{{else}}
                         <a class="waves-effect waves-light btn recommend" id="{{imdb_id}}"><i class="material-icons left">cloud</i>recommend</a>{{/if}}{{/if}}
 
 
@@ -73,22 +71,24 @@
                                 {{overview}}
                             </div>
                         </div>
-                        <p style="margin-bottom:0px">Tag</p>
+                        {{#each tags}}
+                        <div class="tag chip waves-effect">{{this}}</div>
+                        {{/each}}
                     </div>
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row" id="bottom">
-                    <div class="col-sm-6"></div>
-                    <div class="col-sm-6">
-                        <h4 style="text-align: center;">Available on</h4>
-                        <div class="row" id="available web">
-                            <div class="col-sm-2">
-                                <a href="https://www.netflix.com/" target="_blank" style="margin-left: 80px;">
+            <div class="container ">
+                <div class="row " id="bottom ">
+                    <div class="col-sm-6 "></div>
+                    <div class="col-sm-6 ">
+                        <h4 style="text-align: center; ">Available on</h4>
+                        <div class="row " id="available web ">
+                            <div class="col-sm-2 ">
+                                <a href="https://www.netflix.com/ " target="_blank " style="margin-left: 80px; ">
                             Netflix
                         </a>
-                                <a hreg="http://www.hulu.com" target="_blank" style="margin-left: 80px;">
+                                <a hreg="http://www.hulu.com " target="_blank " style="margin-left: 80px; ">
                             Hulu
                         </a>
                             </div>
@@ -97,37 +97,38 @@
                 </div>
             </div>
 
-            <!--    <div class="container">
-        <div class="dropup row">
-            <div class="col-sm-11"></div>
-            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Setting<span class="caret"></span></button>
-            <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Movies</a></li>
-                <li><a href="#">Books</a></li>
+            <!--    <div class="container ">
+        <div class="dropup row ">
+            <div class="col-sm-11 "></div>
+            <button class="btn btn-default dropdown-toggle " type="button " data-toggle="dropdown
+                            ">Setting<span class="caret "></span></button>
+            <ul class="dropdown-menu dropdown-menu-right ">
+                <li><a href="# ">Home</a></li>
+                <li><a href="# ">Movies</a></li>
+                <li><a href="# ">Books</a></li>
             </ul>
         </div>
     </div>-->
 
-            <div class="fixed-action-btn click-to-toggle" style="bottom: 45px; right: 24px;">
-                <a class="btn-floating btn-large red">
-                    <i class="material-icons">menu</i>
+            <div class="fixed-action-btn click-to-toggle " style="bottom: 45px; right: 24px; ">
+                <a class="btn-floating btn-large red ">
+                    <i class="material-icons ">menu</i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating red" href="/movie"><i class="material-icons">theaters</i></a></li>
-                    <!--<li><a class="btn-floating green" href="/book"><i class="material-icons">book</i></a></li>-->
-                    <li><a class="btn-floating blue" href="/"><i class="material-icons">home</i></a></li>
+                    <li><a class="btn-floating red " href="/movie "><i class="material-icons ">theaters</i></a></li>
+                    <!--<li><a class="btn-floating green " href="/book "><i class="material-icons ">book</i></a></li>-->
+                    <li><a class="btn-floating blue " href="/ "><i class="material-icons ">home</i></a></li>
                 </ul>
             </div>
 
             <!-- materialize-->
-            <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
+            <script type="text/javascript " src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js "></script>
             <!--script>
         $(document).ready(function() {
-            $('[data-toggle="popover"]').popover();
+            $('[data-toggle="popover "]').popover();
         });
     </script-->
-            <script src="/js/movieDetail.js"></script>
+            <script src="/js/movieDetail.js "></script>
 </body>
 
 </html>

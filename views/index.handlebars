@@ -3,13 +3,17 @@
 
 <head>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
     <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="newIndex.css">
+    <link rel="stylesheet" href="typography.css">
+    <link rel="stylesheet" href="recommendCard.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hobbyist</title>
@@ -25,350 +29,118 @@
     <div class="swiper-container swiper-container-o">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-            <!-- Slides -->
+                       <!-- Slides -->
             <div class="swiper-slide page-swiper">
-                <div class="main" id="mainbg">
-                    <div class="upper-part container">
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="navbar">
-                                    <nav>
-                                        <div class="nav-wrapper">
-                                            <a href="movie" class="brand-logo left">Movies</a>
-                                            <form id="indexMovieSearch" style="padding-left:8rem">
-                                                <div class="input-field">
-                                                    <input id="m-search" placeholder="Looking for movies?" class="search" type="search" required>
-                                                    <label for="search"><i class="material-icons">search</i></label>
-                                                    <i class="material-icons close">close</i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </nav>
+                <div class="macro-container ">
+                    <div class="container">
+
+                        <header>
+                            <h1>Hobbyist</h1>
+                        </header>
+                        <!--RECOMMEND CARD-->
+                        {{#with recommend}}
+                        <div class="recommendCardContainer hide">
+                            <div class="card indexCard recommendCard">
+                                <div class="cover">
+                                    <img class="z-depth-3 img-responsive" src="{{poster}}">
+                                    <!--<h5 class="blue-grey grey-text text-lighten-5">recommend</h5>-->
                                 </div>
-                                <div class="search-result z-depth-2">
-                                    <ul class="collection" id="movie-search-result">
-                                        <!--{{#each results}}
-                                        <li class="collection-item">
-                                            <div class="card horizontal movie-card" id="{{title}}">
-                                                <div class="card-image">
-                                                    <img src="{{poster}}" class="cover" alt="movie">
-                                                </div>
-                                                <div class="card-stacked">
-                                                    <div class="card-content">
-                                                        <p>{{title}}</p>
-                                                    </div>
-                                                    <div class="card-action">
-                                                        <a class="waves-effect waves-light btn add" id=""><i class="material-icons left">add</i>add</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        {{/each}}-->
-                                    </ul>
+                                <div>
+                                    <h5 class="center-align">{{title}}</h5>
                                 </div>
+                                <div class="tags-container">
+                                    {{#each tags}}
+                                    <div class="tag chip waves-effect">{{this}}</div>
+                                    {{/each}}
+                                </div>
+                                <div class="card-content hide-on-small-only">
+                                    <p>{{summary}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="watchnow" id="{{imdb}}">watch now</a>
+                                    <a href="movieDetail/{{imdb}}">detail</a>
+                                </div>
+                            </div>
+                            <a class="back">Back</a>
+                        </div>
+                        {{/with}}
+                        <!--END OF RECOMMEND CARD-->
+                        <!--RANDOM CARD-->
+                        {{#with random}}
+                        <div class="randomCardContainer hide">
+                            <div class="card indexCard randomCard">
+                                <div class="cover">
+                                    <img class="z-depth-3 img-responsive" src="{{poster}}" alt="">
+                                </div>
+                                <div>
+                                    <h5 class="center-align">{{title}}</h5>
+                                </div>
+                                <div class="tags-container">
+                                    {{each tags}}
+                                    <div class="tag chip waves-effect">{{this}}</div>
+                                    {{/each}}
+                                </div>
+                                <div class="card-content hide-on-small-only">
+                                    <p>{{summary}}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a class="watchnow" id="{{imdb}}">watch now</a>
+                                    <a href="movieDetail/{{imdb}}">detail</a>
+                                </div>
+                            </div>
+                            <a class="back">Back</a>
+                        </div>
+                        {{/with}}
+                        <!--END OF RANDOM CARD-->
+                        <div class="wrapper2">
+                            <div class="card greeting">
+                                <h2>Hello WH</h2>
+                                <h3>Looking for a Movie?</h3>
+                            </div>
+                            <div class="interaction-container">
+                                <div>
+                                    <h3 class="interaction">You can get<em><a class="recommendation"> Recommendation</a></em> from other users</h3>
+                                    <h3 class="interaction">or <em><a class="random">We Pick One</a> </em>for you </h3>
+                                </div>
+                            </div>
+                            <div class="enter_watchlist">
+                                <a href="movie">enter your watchlist</a>
                             </div>
 
-                            <!--<div class="col s12 m12 l12">
-                                <div class="category-title">
-                                    <h2>Movies</h2>
-                                    <div class="search-form">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="Search for...">
-                                            <span class="input-group-btn">
-                                            <button class="btn btn-default" type="button"><i class="small material-icons">search</i></button>
-                                        </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>-->
                         </div>
-                        <div class="row" data-swiper-parallax="-200">
-                            <div class="col s12 m12 l12 content-box">
-                                <div class="content valign-wrapper">
-                                    <div class="content swiper-container swiper-container-u">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide valign-wrapper">
-                                                <div class="container">
-                                                    {{#with recommend}}
-                                                    <div class="recommend-wrapper row">
-                                                        <div class="col s4 ">
-                                                            <img class="z-depth-1 left cover" src="{{poster}}" alt="movie cover">
-                                                        </div>
-                                                        <div class="col s8">
-                                                            <p>Recommend</p>
-                                                            <p>{{title}}</p>
-                                                            <!--<p>tags: {{#each tags}}
-                                                                <div class="chip">{{this}}</div>
-                                                                {{/each}}
-                                                            </p>-->
-                                                            <!--                                                            <a class="waves-effect waves-light btn small" id="add{{imdb}}"><i class="material-icons left">add</i>add</a>
---><a href="movieDetail/a{{imdb}}" class="waves-effect waves-light btn small">detail</a>
-                                                        </div>
-                                                    </div>
-                                                    {{/with}}
-                                                </div>
-                                                <!-- <div class="card-wrapper">
-                                                    <div class="card  horizontal">
-                                                        <div class="card-image">
-                                                            <img src="http://lorempixel.com/100/190/nature/6">
-                                                        </div>
-                                                        <div class="card-stacked">
-                                                            <div class="card-content">
-                                                                <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                                            </div>
-                                                            <div class="card-action">
-                                                                <a href="#">This is a link</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                            </div>
-                                            <div class="swiper-slide valign-wrapper">
-                                                <div class="container valign">
-                                                    <a class="waves-effect waves-light btn random-movie">Just Give Me a Movie</a>
-                                                    <div class="random-wrapper random-wrapper-movie row">
-                                                        {{#with random}}
-                                                        <div class="col s4 ">
-                                                            <img class="z-depth-1 left cover" src="{{poster}}" alt="movie cover">
-                                                        </div>
-                                                        <div class="col s8">
-                                                            <p>{{title}}</p>
-                                                            <!--<p>tags: {{#each tags}}
-                                                                <div class="chip">{{this}}</div>
-                                                                {{/each}}
-                                                            </p>-->
-                                                            <a class="waves-effect waves-light btn small">watch</a>
-                                                            <a href="movieDetail/{{imdb}}" class="waves-effect waves-light btn small">detail</a>
-                                                        </div>
-                                                        {{/with}}
-                                                    </div>
-                                                </div>
-                                                <!--<div class="card-wrapper">
-                                                    <div class="card  horizontal">
-                                                        <div class="card-image">
-                                                            <img src="http://lorempixel.com/100/190/nature/6">
-                                                        </div>
-                                                        <div class="card-stacked">
-                                                            <div class="card-content">
-                                                                <p>I am a very simple card. I am good at containing small bits of information.</p>
-                                                            </div>
-                                                            <div class="card-action">
-                                                                <a href="#">This is a link</a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>-->
-                                                <!--<div class="card small valign">
-                                                    <div class="card-image">
-                                                        <img src="{{poster}}" class="book-cover">
-                                                    </div>
-                                                </div>-->
-                                            </div>
-                                        </div>
-                                        <div class="swiper-pagination swiper-pagination-u"></div>
-                                    </div>
-                                    <!--<div class="row valign">
-                                        <div class="col s6 m6 l6">
-                                            <div class="card small customizedCard">
-                                                <div class="card-image">
-                                                    <img src="img/book-cover.jpg" class="cover" alt="book">
-                                                </div>
-                                                <a class="chip grey-text text-lighten-4 red lighten-2 waves-effect waves-light">open</a>
-                                            </div>
-                                        </div>
-                                        <div class="col s6 m6 l6">
-                                            <div class="card small customizedCard">
-                                                <div class="card-image">
-                                                    <img src="img/book-cover.jpg" class="cover" alt="book">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>-->
-                                </div>
-                            </div>
-                        </div>
-                        <a class="waves-effect waves-light btn" href="movie" data-swiper-parallax="-200">Your Watch List</a>
                     </div>
-                    <div class="lower-part container" data-swiper-parallax="-300">
-                        <div class="row">
-                            <div class="col s12 m12 l12 content-box ">
-                                <h2>Recent</h2>
-                                <div class="content swiper-container swiper-container-n">
-                                    <div class="swiper-wrapper">
-                                        {{#each recent}}
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card recentCard valign ">
-                                                <div class="card-image">
-                                                    <img src="https://image.tmdb.org/t/p/w300/{{backdrop_path}}">
-                                                    <span class="card-title">{{title}}</span> </div>
-                                                <div class="card-content hide-on-small-only">
-                                                    <p>{{overview}}</p>
-                                                </div>
-                                                <div class="card-action">
-                                                    {{#if redirected}}
-                                                    <a class="watched" id="{{imdb_id}}">seen?</a> {{/if}} {{#if added}} {{#if watched}} {{#unless recommended}}
-                                                    <a class="recommend" id="{{imdb_id}}">recommend</a>{{/unless}} {{else}}
-                                                    <a class="watchnow" id="{{imdb_id}}">watch now</a>{{/if}} {{/if}} {{#if newMovie}}
-                                                    <a class="add" id="{{imdb_id}}">add</a>
-                                                    <a href="movieDetail/a{{id}}">detail</a> {{else}}
-                                                    <a href="movieDetail/{{imdb_id}}">detail</a> {{/if}}
 
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        {{/each}}
-                                    </div>
-                                </div>
+                    <!--<div class="swipe-helper">
+                        <h4>swipe right to see recent activity</h4>
+                    </div>-->
+                </div>
+            </div>
+            <div class="swiper-slide page-swiper">
+                <div class="macro-container">
+                    <div class="container">
+                        <h1>Recent</h1>
+                        <div class="card recentCard valign ">
+                            <div class="card-image">
+                                <img src="https://image.tmdb.org/t/p/w300//wFFlaVHmQG4U43m0l3eQqHZluvn.jpg">
+                                <span class="card-title">Arrival</span> </div>
+                            <div class="card-content hide-on-small-only">
+                                <p>Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.</p>
+                            </div>
+                            <div class="card-action">
+                                <a class="watchnow" id="tt2543164">watch now</a>
+                                <a href="movieDetail/tt2543164">detail</a>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>
-            <!--<div class="swiper-slide page-swiper">
-                <div class="main">
-                    <div class="upper-part container">
-                        <div class="row">
-                            <div class="col s12 m12 l12">
-                                <div class="navbar" data-swiper-parallax="-100">
-                                    <nav>
-                                        <div class="nav-wrapper">
-                                            <a href="book" class="brand-logo left">Books</a>
-                                            <form style="padding-left:8rem">
-                                                <div class="input-field">
-                                                    <input id="b-search" placeholder="Looking for books?" class="search" type="search" required>
-                                                    <label for="search"><i class="material-icons">search</i></label>
-                                                    <i class="material-icons">close</i>
-                                                </div>
-                                            </form>
-                                        </div>
-                                    </nav>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="row" data-swiper-parallax="-200">
-                            <div class="col s12 m12 l12 content-box">
-                                <div class="content valign-wrapper">
-                                    <div class="content swiper-container swiper-container-u">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide valign-wrapper">
-                                                <div class="container valign">
-                                                    <div class="recommend-wrapper row">
-                                                        <div class="col s4 ">
-                                                            <img class="z-depth-1 left" src="{{poster}}" alt="book cover" width="83.325px" height="124.988px">
-                                                        </div>
-                                                        <div class="col s8">
-                                                            <p>Recommend</p>
-                                                            <p>title: {{title}}</p>
-                                                            <p>tags: {{#each tags}}
-                                                                <div class="chip">{{this}}</div>
-                                                                {{/each}}
-                                                            </p>
-                                                            <a class="waves-effect waves-light btn small">add</a>
-                                                            <a class="waves-effect waves-light btn small">detail</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                            <div class="swiper-slide valign-wrapper">
-                                                <div class="container valign">
-                                                    <div class="recommend-wrapper row">
-                                                        <div class="col s4 ">
-                                                            <img class="z-depth-1 left" src="{{poster}}" alt="movie cover" width="83.325px" height="124.988px">
-                                                        </div>
-                                                        <div class="col s8">
-                                                            <p>Random</p>
-                                                            <p>title: {{title}}</p>
-                                                            <p>tags: {{#each tags}}
-                                                                <div class="chip">{{this}}</div>
-                                                                {{/each}}
-                                                            </p>
-                                                            <a class="waves-effect waves-light btn small">add</a>
-                                                            <a class="waves-effect waves-light btn small">detail</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-pagination swiper-pagination-u"></div>
-                                    </div>
-                                    <!-- <div class="row valign">
-                                        <div class="col s6 m6 l6">
-                                            <div class="card small customizedCard">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col s6 m6 l6">
-                                            <div class="card small customizedCard">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <a class="waves-effect waves-light btn" href="book" data-swiper-parallax="-200">Your Book List</a>
-                    </div>
-                    <div class="lower-part container" data-swiper-parallax="-300">
-                        <div class="row">
-                            <div class="col s12 m12 l12 content-box ">
-                                <h2>Recent</h2>
-                                <div class="content swiper-container swiper-container-n">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="swiper-slide valign-wrapper">
-                                            <div class="card small customizedCard valign">
-                                                <div class="card-image">
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>-->
-            <!--end of swiper-slide-->
-
-
-
+            <div id="bubbles">
+                <div class="bubble x1"></div>
+                <div class="bubble x2"></div>
+                <div class="bubble x3"></div>
+                <div class="bubble x4"></div>
+                <div class="bubble x5"></div>
+            </div>
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination swiper-pagination-o"></div>
@@ -391,7 +163,8 @@
 
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <!-- Bootstrap-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <!-- materialize-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>

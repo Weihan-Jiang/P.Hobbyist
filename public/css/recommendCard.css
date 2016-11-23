@@ -1,0 +1,67 @@
+.macro-container {
+    height: 100vh;
+    z-index: 100;
+    position: relative;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+}
+
+.row {
+    height: 100%;
+}
+
+.movieflow-card {
+    margin-top: 10px;
+}
+
+.cover img {
+    /*position: relative;*/
+    /*display: block;*/
+    z-index: 20;
+}
+
+.cover {
+    position: relative;
+    margin-top: -30%;
+}
+
+.cover h5 {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0;
+}
+
+.indexCard {
+    /*position: absolute;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 37%;
+    /*width: inherit;*/
+}
+
+
+/*.movieCard-container {
+    padding-top: 50%;
+}*/
+
+.tags-container {
+    width: 85%;
+    text-align: center;
+}
+
+.tag {
+    display: inline-block;
+}
+
+
+/*.card {
+    width: 288px;
+    height: 223.234px;
+}*/

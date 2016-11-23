@@ -72,6 +72,8 @@ var recommend = require('./routes/recommend');
 
 var watched = require('./routes/watched');
 
+var add = require('./routes/add');
+
 // Example route
 
 // var user = require('./routes/user');
@@ -138,6 +140,7 @@ app.post('/movieDetail/add', movieDetail.add);
 app.post('/check', login.check);
 app.post('/recommend/:id/:status', recommend.update);
 app.post('/watched/:id/:status', watched.update);
+app.post('/add/:id/:status', add.update);
 //app.post('/:keyword', index.search);
 // Example route
 

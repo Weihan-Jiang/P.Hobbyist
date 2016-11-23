@@ -36,6 +36,7 @@ exports.view = function(req, res) {
     var watched;
     var redirected = false;
     var recommend = false;
+    var tags;
     if (id.charAt(0) == 'a') {
         id = id.substr(1);
         console.log("get real id " + id);
@@ -57,6 +58,7 @@ exports.view = function(req, res) {
                 if (movies.movies[temp].title == movieInfo.title) {
                     console.log('find the movie ' + movies.movies[temp].title);
                     newMovie = false;
+                    tags = movies.movies[temp].tags;
                     console.log("set newmovie to false " + newMovie);
                     console.log("watched is" + movies.movies[temp].watched);
                     if (movies.movies[temp].watched) {
@@ -88,6 +90,7 @@ exports.view = function(req, res) {
             movieInfo.watched = watched;
             console.log("movieInfo,watched " + movieInfo.watched);
             movieInfo.recommend = recommend;
+            movieInfo.tags = tags;
             var notInRecent = true;
             console.log("now update recentJSON");
             for (var i = 0; i < recentJSON.movies.length; i++) {
