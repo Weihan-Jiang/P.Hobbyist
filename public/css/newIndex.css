@@ -24,7 +24,11 @@ a.recommendation {
 
 .enter_watchlist {
     position: absolute;
-    bottom: 10px;
+    bottom: 30px;
+    color: tomato;
+}
+
+.enter_watchlist a {
     color: tomato;
 }
 

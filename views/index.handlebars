@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
     <link rel="stylesheet" href="css/main.css">
-        <link rel="stylesheet" href="newIndex.css">
-    <link rel="stylesheet" href="typography.css">
-    <link rel="stylesheet" href="recommendCard.css">
+        <link rel="stylesheet" href="css/newIndex.css">
+    <link rel="stylesheet" href="css/typography.css">
+    <link rel="stylesheet" href="css/recommendCard.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Hobbyist</title>
@@ -29,8 +29,8 @@
     <div class="swiper-container swiper-container-o">
         <!-- Additional required wrapper -->
         <div class="swiper-wrapper">
-                       <!-- Slides -->
-            <div class="swiper-slide page-swiper">
+            <!-- Slides -->
+                        <div class="swiper-slide page-swiper">
                 <div class="macro-container ">
                     <div class="container">
 
@@ -76,7 +76,7 @@
                                     <h5 class="center-align">{{title}}</h5>
                                 </div>
                                 <div class="tags-container">
-                                    {{each tags}}
+                                    {{#each tags}}
                                     <div class="tag chip waves-effect">{{this}}</div>
                                     {{/each}}
                                 </div>
@@ -106,7 +106,6 @@
                             <div class="enter_watchlist">
                                 <a href="movie">enter your watchlist</a>
                             </div>
-
                         </div>
                     </div>
 
@@ -116,31 +115,43 @@
                 </div>
             </div>
             <div class="swiper-slide page-swiper">
-                <div class="macro-container">
-                    <div class="container">
-                        <h1>Recent</h1>
-                        <div class="card recentCard valign ">
-                            <div class="card-image">
-                                <img src="https://image.tmdb.org/t/p/w300//wFFlaVHmQG4U43m0l3eQqHZluvn.jpg">
-                                <span class="card-title">Arrival</span> </div>
-                            <div class="card-content hide-on-small-only">
-                                <p>Taking place after alien crafts land around the world, an expert linguist is recruited by the military to determine whether they come in peace or are a threat.</p>
-                            </div>
-                            <div class="card-action">
-                                <a class="watchnow" id="tt2543164">watch now</a>
-                                <a href="movieDetail/tt2543164">detail</a>
-                            </div>
+                <div class="container" style="height: 100vh;overflow-y: scroll;">
+                    <h1>Recent</h1>
+                    {{#each recent}}
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="https://image.tmdb.org/t/p/w300/{{backdrop_path}}">
+                            <span class="card-title">{{title}}</span> </div>
+                        <div class="card-content hide-on-small-only">
+                            <p>{{overview}}</p>
+                        </div>
+                        <div class="card-action">
+                            {{#if redirected}}
+                            <a class="watched" id="{{imdb_id}}">seen?</a> {{/if}} 
+                            {{#if added}} 
+                            {{#if watched}} 
+                            {{#unless recommended}}
+                            <a class="recommend" id="{{imdb_id}}">recommend</a>
+                            {{/unless}} 
+                            {{else}}
+                            <a class="watchnow" id="{{imdb_id}}">watch now</a>
+                            {{/if}} 
+                            {{/if}} 
+                            {{#if newMovie}}
+                            {{#unless added}}
+                            <a class="add" id="{{imdb_id}}">add</a>
+                            {{/unless}}
+                            <a href="movieDetail/a{{id}}">detail</a> {{else}}
+                            <a href="movieDetail/{{imdb_id}}">detail</a> {{/if}}
                         </div>
                     </div>
+                    {{/each}}
                 </div>
             </div>
-            <div id="bubbles">
-                <div class="bubble x1"></div>
-                <div class="bubble x2"></div>
-                <div class="bubble x3"></div>
-                <div class="bubble x4"></div>
-                <div class="bubble x5"></div>
-            </div>
+
+
+
+
         </div>
         <!-- If we need pagination -->
         <div class="swiper-pagination swiper-pagination-o"></div>
@@ -171,7 +182,7 @@
     <!-- javascript-->
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/index.js"></script><script src="js/greeting.js"></script>
 </body>
 
 </html>
