@@ -4,25 +4,12 @@ const api_base_url = "https://api.themoviedb.org/3/";
 var request = require('request');
 var movies = require("../public/data/movie/user_movie.json");
 var indexJSON = require("../public/data/movie/index.json");
-var recentJSON = require("../public/data/movie/recent.json");
-var recommendJSON = require('../public/data/movie/recommend.json');
 var fs = require('fs');
 
+
 exports.view = function(req, res) {
-    var length = movies.movies.length;
-    var index = Math.floor((Math.random() * (length - 1)));
-    var randomMovie = movies.movies[index];
-    while (randomMovie.watched) {
-        index = Math.floor((Math.random() * (length - 1)));
-        randomMovie = movies.movies[index];
-    }
-    index = Math.floor((Math.random() * (recommendJSON.length - 1)));
-    var recommendMovie = recommendJSON[index];
-    console.log("index is " + index);
-    indexJSON.random = randomMovie;
-    indexJSON.recent = recentJSON.movies;
-    indexJSON.recommend = recommendMovie;
-    res.render('index', indexJSON);
+
+    res.render('index2', indexJSON);
 
 };
 
@@ -38,12 +25,12 @@ exports.search = function(req, res) {
             //console.log(res);
             fs.writeFile('../P.Hobbyist/public/data/movie/searchResult.json', JSON.stringify(searchResult), 'utf8', function(err) {
                 if (err) throw err;
-                else {
-
+                else{
+                    
                 }
 
             });
-            res.render('index', searchResult);
+            res.render('index2', searchResult);
         } else {
             console.log('error: ' + response.statusCode)
             console.log(body);

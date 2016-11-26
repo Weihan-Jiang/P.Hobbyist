@@ -3,83 +3,70 @@ $(function() {
         // Optional parameters
         direction: 'horizontal',
         loop: false,
-        pagination: '.swiper-pagination'
+        pagination: '.swiper-pagination-o',
+        parallax: true,
+        speed: 600,
 
     })
     var nestedSwiper = new Swiper('.swiper-container-n', {
         direction: 'horizontal',
         loop: false,
         nested: true,
-        slidesPerView: 5,
+        slidesPerView: 'auto',
         spaceBetween: 30,
-        free: true,
+        freeMode: true,
+        centeredSlides: true,
         breakpoints: {
             767: {
-                slidesPerView: 3,
+                slidesPerView: 'auto',
                 spaceBetween: 30
             }
         }
     })
+    var upperSwiper = new Swiper('.swiper-container-u', {
+        direction: 'horizontal',
+        loop: false,
+        nested: true,
+        pagination: '.swiper-pagination-u',
 
+    })
 
-
+    /*    $('i.material-icons.close').hide();
+     */
     var $search = $('.search:input');
     $('.search-result').hide();
+    $('i.material-icons.close').hide();
 
     $search.on('focus', function() {
-        $('form').animate({
+        $('i.material-icons.close').show();
+        $('#indexMovieSearch').animate({
             paddingLeft: "0px"
         }, 500);
+
     })
 
     $search.on('blur', function() {
-        console.log("blur?");
-        $('form').animate({
+        $('#indexMovieSearch').animate({
             paddingLeft: "8rem"
         }, 500);
+        $('.search-result').fadeOut();
     })
 
-    $search.on('input', function() {
-        var value = $search.val();
-        if (value.length > 1) {
-            $('.search-result').show();
-        }
+    $('i.material-icons.close').on('click', function() {
+        $('.search-result').fadeOut();
+        $('i.material-icons.close').hide();
+        $search.val('');
     })
+
+    var $randomContent = $('.random-wrapper-movie');
+    var $random = $('.random-movie.btn');
+    $randomContent.hide();
+    $random.on('click', function() {
+        console.log('clicked random button');
+        $random.hide();
+        $randomContent.fadeIn();
+        console.log('showed result');
+
+    })
+
 });
-
-
-jQuery(document).ready(function($){
-    
-    
-    
-    // external js: isotope.pkgd.js
-
-var $grid = $('.grid').isotope({
-  itemSelector: '.grid-item',
-  stagger: 30
-});
-
-$('.grid').masonry({
-    columnWidth: 400,
-    itemSelector:'.grid-item'
-})
-
-$('.filter-button-group').on( 'click', '.button', function() {
-  var filterValue = $(this).attr('data-filter');
-  $grid.isotope({ filter: filterValue });
-});
-
-// change is-checked class on buttons
-$('.button-group').each( function( i, buttonGroup ) {
-  var $buttonGroup = $( buttonGroup );
-  $buttonGroup.on( 'click', 'button', function() {
-    $buttonGroup.find('.checked').removeClass('checked');
-    $( this ).addClass('checked');
-  });
-})
-});
-
-$('.grid').masonry({
-    columnWidth: 600,
-    itemSelector: '.grid-item'
-})
