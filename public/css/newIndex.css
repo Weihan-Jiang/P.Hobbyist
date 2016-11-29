@@ -18,8 +18,10 @@
 }
 
 a.random,
-a.recommendation {
+a.recommendation,
+a.watchlist {
     color: tomato;
+    text-decoration: underline;
 }
 
 .enter_watchlist {

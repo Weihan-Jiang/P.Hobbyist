@@ -2,7 +2,7 @@
 const api_base_url = "https://api.themoviedb.org/3/";*/
 
 $(document).ready(function() {
-
+    $('.collapsible').collapsible();
     $("#back").click(function() {
         window.history.back();
     });

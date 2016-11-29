@@ -100,12 +100,12 @@
                             <div class="interaction-container">
                                 <div>
                                     <h3 class="interaction">You can get<em><a class="recommendation"> Recommendation</a></em> from other users</h3>
-                                    <h3 class="interaction">or <em><a class="random">We Pick One</a> </em>for you </h3>
+                                    <h3 class="interaction">or <em><a class="random">We Pick One</a></em> for you in your<em> <a class="watchlist" href="movie">Watchlist</a></em></h3>
                                 </div>
                             </div>
-                            <div class="enter_watchlist">
+                            {{!--<div class="enter_watchlist">
                                 <a href="movie">enter your watchlist</a>
-                            </div>
+                            </div>--}}
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@
                 </div>
             </div>
             <div class="swiper-slide page-swiper">
-                <div class="container" style="height: 100vh;overflow-y: scroll;">
+                <div class="container" style="height: 100vh;overflow-y: scroll;z-index:100">
                     <h1>Recent</h1>
                     {{#each recent}}
                     <div class="card">
@@ -150,7 +150,13 @@
             </div>
 
 
-
+ <div id="bubbles">
+                <div class="bubble x1"></div>
+                <div class="bubble x2"></div>
+                <div class="bubble x3"></div>
+                <div class="bubble x4"></div>
+                <div class="bubble x5"></div>
+            </div>
 
         </div>
         <!-- If we need pagination -->
@@ -169,6 +175,7 @@
             <li><a class="btn-floating blue" href="/"><i class="material-icons">home</i></a></li>
         </ul>
     </div>
+
 
 
 

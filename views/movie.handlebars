@@ -3,13 +3,16 @@
 
 <head>
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
     <!--Import Google Icon Font-->
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/css/swiper.min.css">
     <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/typography.css">
+
     <link rel="stylesheet" href="css/list.css">
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -81,11 +84,12 @@
     </div>
 
     <div class="list-wrapper">
-        <div class="row">
+        <div class="">
+            {{!--
             <aside class="date col s3">
                 <time datetime="2016-11">November</time>
-            </aside>
-            <div class="movieList col s8">
+            </aside>--}}
+            <div class="movieList">
                 <div class="movie-grid row">
                     {{#each movies}} {{#unless watched}}
                     <div class="movie-item {{#each tags}}{{this}} {{/each}} col s12  ">
@@ -97,7 +101,10 @@
                             </div>
                             <div class="card-stacked">
                                 <div class="card-content">
-                                    <p>{{title}}</p>
+                                    <h5>{{title}}</h5>
+                                    {{#each tags}}
+                                    <div class="tag chip">{{this}}</div>
+                                    {{/each}}
                                 </div>
                                 <div class="card-action ">
                                     <a class="red-text text-lighten-5" href="movieDetail/{{imdb}}">Open</a>
@@ -132,10 +139,12 @@
 
 
 
-    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/isotope-layout@3.0/dist/isotope.pkgd.min.js"></script>
     <!-- Bootstrap-->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
     <!-- materialize-->
     <script type="text/javascript" src="js/materialize.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.0/js/swiper.jquery.min.js"></script>
@@ -168,7 +177,7 @@
             }
         }
 
-        $tag = $(".tag");
+        $tag = $(".tag.waves-effect");
 
         $tag.on('click', function(event) {
             $this = $(this);

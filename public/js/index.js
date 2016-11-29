@@ -2,7 +2,10 @@ $(function() {
     $recommend = $('a.recommend');
     $add = $('a.add');
     $watched = $('a.watched');
-
+    // $watchlist = $('a.watchlist');
+    // $watchlist.on('click', function() {
+    //     $('.macro-container').fadeOut();
+    // });
     $recommend.on('click', function() {
         console.log("recommend button is clicked");
         var classAttr = $recommend.attr('class');

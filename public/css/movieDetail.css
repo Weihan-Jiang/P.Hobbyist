@@ -1,28 +1,26 @@
-button#back{
-
-	background-color:#e57373;
-	border:none;
-	/*font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+button#back {
+    background-color: #e57373;
+    border: none;
+    /*font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-size:21px;
 	font-weight:200;*/
-
 }
 
-#middle-right{
-	text-align: center;
+#middle-right {
+    text-align: center;
 }
 
-#movie-description{
-	text-align: center;
+#movie-description {
+    text-align: center;
 }
 
 #history-img {
-	width:60%;
-	height:auto;
-	margin-left: 60px;
+    display: block;
+    height: auto;
+    margin: 0 auto;
+    width: 80%;
 }
 
 #headerDetail {
-	background-color: #e57373;
-
+    background-color: #e57373;
 }
