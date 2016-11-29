@@ -56,15 +56,18 @@ h1{
   background-color: #fff;
   padding: 30px;
   border-radius: 5px;
+  width: 370px;
+  height: 500px;
 }
 
 .form__control{
   display: block;
   margin-bottom: 10px;
   height: 45px;
-  width: 350px;
+  width: 300px;
   border-radius: 5px;
   border: 1px solid #ccc;
+  margin-left: 50px;
 }
 
 .form__control:focus{
@@ -120,12 +123,16 @@ h1{
 
 .login__options{
   margin-bottom: 30px;
+  margin-left: 50px;
   font-weight: 600;
   font-size: 17px;
+
 }
+
 
 .form__group{
   margin-bottom: 15px;
+  margin-left: 50px;
 }
 
 h5{
@@ -188,8 +195,20 @@ h5 span {
 
 .signup__link{
   font-weight: 600;
+  margin-left: 50px;
+
+
 }
 
 .signup__link span{
   color: #4B5052;
+}
+
+#loginlogo {
+  width: 370px;
+  height: 290px;
+  margin-left: 50px;
+  position: relative;
+  top: -10px; 
+  margin-bottom: -10px;
 }

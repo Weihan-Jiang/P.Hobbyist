@@ -6,6 +6,13 @@ button#back {
 	font-weight:200;*/
 }
 
+#backbttn {
+    background-color: white;
+    border: none;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
 #middle-right {
     text-align: center;
 }
